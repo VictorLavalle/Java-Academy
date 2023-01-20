@@ -2,6 +2,9 @@ package com.academy.week1.exam.question1;
 
 import java.util.ArrayList;
 
+//Instructions:
+//Explain polymorphism by using inheritance and interfaces.
+
 public class Principal {
 
     public static void main(String[] args){
