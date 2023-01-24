@@ -8,13 +8,11 @@ public class WindowsComputer extends Computer {
         this.version = version;
     }
 
-    @Override
-    void turnOn() {
+    public void turnOn() {
         System.out.println("Turning on Windows " + version + " computer");
     }
 
-    @Override
-    void turnOff() {
+    public void turnOff() {
         System.out.println("Turning off Windows " + version + " computer");
     }
 

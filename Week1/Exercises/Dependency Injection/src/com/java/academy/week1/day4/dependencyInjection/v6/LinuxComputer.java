@@ -1,7 +1,8 @@
-package com.java.academy.week1.day4.dependencyInjection.v5;
+package com.java.academy.week1.day4.dependencyInjection.v6;
 
-public class LinuxComputer extends Computer {
+public class LinuxComputer implements Computer {
 
+    //Has-A
     String version;
 
     public LinuxComputer(String version) {

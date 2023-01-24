@@ -1,6 +1,6 @@
-package com.java.academy.week1.day4.dependencyInjection.v4;
+package com.java.academy.week1.day4.dependencyInjection.v6;
 
-public class WindowsComputer extends Computer {
+public class WindowsComputer implements Computer {
 
     //Has-A
     String version;
@@ -10,12 +10,12 @@ public class WindowsComputer extends Computer {
     }
 
     @Override
-    void turnOn() {
+    public void turnOn() {
         System.out.println("Turning on Windows " + version + " computer");
     }
 
     @Override
-    void turnOff() {
+    public void turnOff() {
         System.out.println("Turning off Windows " + version + " computer");
     }
 

@@ -1,4 +1,4 @@
-package com.java.academy.week1.day4.dependencyInjection.v4;
+package com.java.academy.week1.day4.dependencyInjection.v6;
 
 public class Intern {
 
@@ -8,7 +8,7 @@ public class Intern {
     //Don't call me, I'll call you --> Fulfiled
     //Low coupling
     //An External agent must inject the object to the reference variable
-    Computer computer;
+    private Computer computer;
 
     public Intern(String name) {
         this.name = name;

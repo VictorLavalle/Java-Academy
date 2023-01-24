@@ -1,4 +1,4 @@
-package com.java.academy.week1.day4.dependencyInjection.v4;
+package com.java.academy.week1.day4.dependencyInjection.v6;
 
 public class Injector {
 
