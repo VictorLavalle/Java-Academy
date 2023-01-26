@@ -5,7 +5,7 @@ public class Principal {
         public static void main(String[] args) {
 
             //Create an object of Employee class
-            Employee employee = new Employee("John", -25, false, new StringBuilder("Developer"));
+            Employee employee = new Employee("John", 25, false, new StringBuilder("Developer"));
 
             //employee.age = -25; //This is not allowed, it will throw an exception because age is private
             employee.setAge(-25);  //This is allowed because age is private but we have a setter

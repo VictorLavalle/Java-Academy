@@ -8,7 +8,9 @@ public class Employee {
     private boolean isSingle;
     private StringBuilder position;
 
-    //Constructor
+    //Constructors
+    public Employee() {} //Default constructor
+
     public Employee(String name, int age, boolean isSingle, StringBuilder position) {
         this.name = name;
         this.age = age;
