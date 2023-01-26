@@ -109,6 +109,7 @@ out/
 !**/src/test/**/out/
 
 ### Eclipse ###
+.metadata
 .apt_generated
 .classpath
 .factorypath
