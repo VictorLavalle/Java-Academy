@@ -22,7 +22,7 @@ public class Principal {
         animal = new Duck();
         animal.makeSound();
 
-        System.out.println("---------\nRandom animal
+        System.out.println("---------\nRandom animal");
 
         //Print random animal
         animal = getAnimal();
