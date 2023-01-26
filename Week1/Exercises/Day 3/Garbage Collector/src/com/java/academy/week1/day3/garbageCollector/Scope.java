@@ -6,8 +6,10 @@ public class Scope {
 
         //Local vaiables
         String one, two;
+        // Until here we have 0 objects but 2 references in the stack memory
 
-        //In here we have two objects in the heap memory and one reference in the stack memory
+
+        //In here we have 2 objects in the heap memory and one reference in the stack memory
         one = new String("a");
         two = new String("b");
         one = two;
@@ -15,6 +17,8 @@ public class Scope {
         //In here we have one object in the heap memory and one reference in the stack memory
         String three = one;
         one = null;
+
+        //We expect to have 1 object in the heap memory and 1 reference in the stack memory
 
     }
 
