@@ -28,6 +28,12 @@ public class Principal2 {
 
         Principal2 principal3 = new Principal2();
         System.out.println("Counter: " + principal3.counter);
+
+//      Example of octal number in Java
+//		int x = 1;
+//		int y = 010; //8 //OCTAL
+//		System.out.println("Resultado");
+//		System.out.println(x+y);  //It will print 9
     }
 
     {
