@@ -8,7 +8,7 @@ public class Config {
     private String password; //TODO: encrypt this password
     private static Config instance; //Singleton
 
-    //Constructor defqult
+    //Constructor default
     private Config(){ }
 
 
@@ -49,4 +49,12 @@ public class Config {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "Config{" +
+                "url='" + url + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

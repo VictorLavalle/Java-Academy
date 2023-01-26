@@ -2,7 +2,7 @@ package com.academy.week1.exam.question1;
 
 public abstract class Superhero implements Superpower {
 
-    // Declare the attrinutes
+    // Declare the attributes
     private String name;
     private String superpower;
     private int powerLevel = 0;

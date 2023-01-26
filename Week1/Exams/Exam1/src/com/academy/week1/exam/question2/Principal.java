@@ -20,16 +20,19 @@ public class Principal {
         config.setUrl(url);
         config.setUsername(username);
         config.setPassword(password);
+
+        System.out.println("Connection established");
+        System.out.println("URL: " + config.getUrl());
+        System.out.println("Username: " + config.getUsername());
+        System.out.println("Password: " + config.getPassword());
+        System.out.println("-----------------------------\n");
     }
 
     public static void openConnection() {
         Config config = Config.getInstance(); //Here is when the object is already created
 
-        //TODO: Create a connection to the database using the configuration stored in the Config class
-        Connection connection = new Connection(config.getUrl(), config.getUsername(), config.getPassword());
-
-        //TODO: Open the connection. If the connection is already open, then do nothing.
-        //connection.open();
+        System.out.println("Connection already established");
+        System.out.println( config.toString() );
 
     }
 
