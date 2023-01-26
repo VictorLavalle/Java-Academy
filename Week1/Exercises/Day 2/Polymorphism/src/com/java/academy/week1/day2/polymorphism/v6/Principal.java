@@ -23,7 +23,7 @@ public class Principal {
     // Polymorphism
     static void printOperations(ArrayList<Operation> operations) {
         for (Operation operation : operations) {
-            System.out.println(operation);
+            System.out.println(operation.toString());
             System.out.println(operation.execute());
         }
     }

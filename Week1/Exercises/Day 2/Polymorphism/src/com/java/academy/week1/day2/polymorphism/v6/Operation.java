@@ -1,5 +1,6 @@
 package com.java.academy.week1.day2.polymorphism.v6;
 
+//CANNOT CREATE OBJECTS FROM THIS CLASS BECAUSE IT IS ABSTRACT
 public abstract class Operation {
 
     int x;
@@ -10,6 +11,8 @@ public abstract class Operation {
         this.y = y;
     }
 
+    //METHOD WITHOUT BODY (BEHAVIOR)
+    //THE CHILDREN MUST WILL IMPLEMENT THIS METHOD WITH THEIR OWN BEHAVIOR (BODY)
     abstract int execute();
 
     @Override
