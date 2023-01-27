@@ -74,3 +74,40 @@ tr:nth-child(odd) {
 	margin-bottom: 15px;
 	background: #cccccc;
 }
+
+small {
+  text-align: center;
+  color: #999;
+  margin: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  small {
+    width: 70%;
+  }
+}
+
+footer {
+  font-size: .8rem;
+  margin: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.logo-git {
+  width: 15px;
+  height: 15px;
+}
+
+
+.linkedin:hover {
+  color: #2cd131ea;
+}
+
+
+a:link,
+a:visited {
+  color: #4caf50;
+  text-decoration: none;
+}
