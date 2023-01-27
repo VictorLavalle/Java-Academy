@@ -275,7 +275,7 @@ To summarize, monolithic architecture is a traditional approach in which all of 
 
 An exception is an ***occurrence during program execution*** that disrupts the normal flow of instructions. Errors, such as a missing file, a failed network connection, or an invalid input, are commonly the cause of exceptions. When an exception occurs, the Java runtime system creates an object representing the exception and sends it to the nearest exception handler.
 
-![image-20230127123904434](/home/vic/.config/Typora/typora-user-images/image-20230127123904434.png)
+![Exceptions](./imgs/exceptions.png)
 
 #### Types of Exceptions
 
