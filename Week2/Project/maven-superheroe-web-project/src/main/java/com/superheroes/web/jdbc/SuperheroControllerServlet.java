@@ -1,4 +1,4 @@
-package com.luv2code.web.jdbc;
+package com.superheroes.web.jdbc;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,10 +16,10 @@ import javax.sql.DataSource;
  * Servlet implementation class StudentControllerServlet
  */
 @WebServlet("/StudentControllerServlet")
-public class StudentControllerServlet extends HttpServlet {
+public class SuperheroControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private StudentDbUtil studentDbUtil;
+	private SuperheroDbUtil studentDbUtil;
 	
 	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
@@ -30,7 +30,7 @@ public class StudentControllerServlet extends HttpServlet {
 		
 		// create our student db util ... and pass in the conn pool / datasource
 		try {
-			studentDbUtil = new StudentDbUtil(dataSource);
+			studentDbUtil = new SuperheroDbUtil(dataSource);
 		}
 		catch (Exception exc) {
 			throw new ServletException(exc);
@@ -105,7 +105,7 @@ public class StudentControllerServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		// create a new student object
-		Student theStudent = new Student(id, firstName, lastName, email);
+		Superhero theStudent = new Superhero(id, firstName, lastName, email);
 		
 		// perform update on database
 		studentDbUtil.updateStudent(theStudent);
@@ -122,7 +122,7 @@ public class StudentControllerServlet extends HttpServlet {
 		String theStudentId = request.getParameter("studentId");
 		
 		// get student from database (db util)
-		Student theStudent = studentDbUtil.getStudent(theStudentId);
+		Superhero theStudent = studentDbUtil.getStudent(theStudentId);
 		
 		// place student in the request attribute
 		request.setAttribute("THE_STUDENT", theStudent);
@@ -141,7 +141,7 @@ public class StudentControllerServlet extends HttpServlet {
 		String email = request.getParameter("email");		
 		
 		// create a new student object
-		Student theStudent = new Student(firstName, lastName, email);
+		Superhero theStudent = new Superhero(firstName, lastName, email);
 		
 		// add the student to the database
 		studentDbUtil.addStudent(theStudent);
@@ -154,7 +154,7 @@ public class StudentControllerServlet extends HttpServlet {
 		throws Exception {
 
 		// get students from db util
-		List<Student> students = studentDbUtil.getStudents();
+		List<Superhero> students = studentDbUtil.getStudents();
 		
 		// add students to the request
 		request.setAttribute("STUDENT_LIST", students);

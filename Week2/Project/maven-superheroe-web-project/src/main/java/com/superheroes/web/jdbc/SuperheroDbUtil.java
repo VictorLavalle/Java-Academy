@@ -1,4 +1,4 @@
-package com.luv2code.web.jdbc;
+package com.superheroes.web.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,17 +9,17 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-public class StudentDbUtil {
+public class SuperheroDbUtil {
 
 	private DataSource dataSource;
 
-	public StudentDbUtil(DataSource theDataSource) {
+	public SuperheroDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
 	
-	public List<Student> getStudents() throws Exception {
+	public List<Superhero> getSuperheroes() throws Exception {
 		
-		List<Student> students = new ArrayList<>();
+		List<Superhero> superheroes = new ArrayList<>();
 		
 		Connection myConn = null;
 		Statement myStmt = null;
@@ -30,7 +30,7 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create sql statement
-			String sql = "select * from student order by last_name";
+			String sql = "select * from superheroes order by secret_identity";
 			
 			myStmt = myConn.createStatement();
 			
@@ -42,18 +42,18 @@ public class StudentDbUtil {
 				
 				// retrieve data from result set row
 				int id = myRs.getInt("id");
-				String firstName = myRs.getString("first_name");
-				String lastName = myRs.getString("last_name");
-				String email = myRs.getString("email");
+				String secretIdentity = myRs.getString("secret_identity");
+				String alterEgo= myRs.getString("alter_ego");
+				String superPower = myRs.getString("superpower");
 				
 				// create new student object
-				Student tempStudent = new Student(id, firstName, lastName, email);
+				Superhero tempSuperhero = new Superhero(id, secretIdentity, alterEgo, superPower);
 				
-				// add it to the list of students
-				students.add(tempStudent);				
+				// add it to the list of superheroes
+				superheroes.add(tempSuperhero);				
 			}
 			
-			return students;		
+			return superheroes;		
 		}
 		finally {
 			// close JDBC objects
@@ -81,7 +81,7 @@ public class StudentDbUtil {
 		}
 	}
 
-	public void addStudent(Student theStudent) throws Exception {
+	public void addStudent(Superhero theSuperhero) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -91,16 +91,16 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create sql for insert
-			String sql = "insert into student "
-					   + "(first_name, last_name, email) "
+			String sql = "insert into superhero "
+					   + "(secret_identity, alter_ego, superpower) "
 					   + "values (?, ?, ?)";
 			
 			myStmt = myConn.prepareStatement(sql);
 			
-			// set the param values for the student
-			myStmt.setString(1, theStudent.getFirstName());
-			myStmt.setString(2, theStudent.getLastName());
-			myStmt.setString(3, theStudent.getEmail());
+			// set the param values for the superhero
+			myStmt.setString(1, theSuperhero.getSecretIdentity());
+			myStmt.setString(2, theSuperhero.getAlterEgo());
+			myStmt.setString(3, theSuperhero.getSuperPower());
 			
 			// execute sql insert
 			myStmt.execute();
@@ -111,48 +111,48 @@ public class StudentDbUtil {
 		}
 	}
 
-	public Student getStudent(String theStudentId) throws Exception {
+	public Superhero getSuperhero(String theSuperheroId) throws Exception {
 
-		Student theStudent = null;
+		Superhero theSuperhero = null;
 		
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
-		int studentId;
+		int superheroId;
 		
 		try {
-			// convert student id to int
-			studentId = Integer.parseInt(theStudentId);
+			// convert superhero  id to int
+			superheroId = Integer.parseInt(theSuperheroId);
 			
 			// get connection to database
 			myConn = dataSource.getConnection();
 			
-			// create sql to get selected student
-			String sql = "select * from student where id=?";
+			// create sql to get selected superhero
+			String sql = "select * from superheroes where id=?";
 			
 			// create prepared statement
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setInt(1, studentId);
+			myStmt.setInt(1, superheroId);
 			
 			// execute statement
 			myRs = myStmt.executeQuery();
 			
 			// retrieve data from result set row
 			if (myRs.next()) {
-				String firstName = myRs.getString("first_name");
-				String lastName = myRs.getString("last_name");
-				String email = myRs.getString("email");
+				String secretIdentity = myRs.getString("secret_identity");
+				String alterEgo = myRs.getString("alter_ego");
+				String superPower = myRs.getString("superpower");
 				
 				// use the studentId during construction
-				theStudent = new Student(studentId, firstName, lastName, email);
+				theSuperhero = new Superhero(superheroId, secretIdentity, alterEgo, superPower);
 			}
 			else {
-				throw new Exception("Could not find student id: " + studentId);
+				throw new Exception("Could not find student id: " + superheroId);
 			}				
 			
-			return theStudent;
+			return theSuperhero;
 		}
 		finally {
 			// clean up JDBC objects
@@ -160,7 +160,7 @@ public class StudentDbUtil {
 		}
 	}
 
-	public void updateStudent(Student theStudent) throws Exception {
+	public void updateSuperhero(Superhero theSuperhero) throws Exception {
 		
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -170,18 +170,20 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create SQL update statement
-			String sql = "update student "
-						+ "set first_name=?, last_name=?, email=? "
+			String sql = "update superheroes "
+						+ "set secret_identity=?, alter_ego=?, superpower=? "
 						+ "where id=?";
 			
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setString(1, theStudent.getFirstName());
-			myStmt.setString(2, theStudent.getLastName());
-			myStmt.setString(3, theStudent.getEmail());
-			myStmt.setInt(4, theStudent.getId());
+			myStmt.setString(1, theSuperhero.getSecretIdentity());
+			myStmt.setString(2, theSuperhero.getAlterEgo());
+			myStmt.setString(3, theSuperhero.getSuperPower());
+			myStmt.setInt(4, theSuperhero.getId());
+
+			
 			
 			// execute SQL statement
 			myStmt.execute();
@@ -192,26 +194,26 @@ public class StudentDbUtil {
 		}
 	}
 
-	public void deleteStudent(String theStudentId) throws Exception {
+	public void deleteSuperhero(String theSuperheroId) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		
 		try {
 			// convert student id to int
-			int studentId = Integer.parseInt(theStudentId);
+			int superheroId = Integer.parseInt(theSuperheroId);
 			
 			// get connection to database
 			myConn = dataSource.getConnection();
 			
-			// create sql to delete student
-			String sql = "delete from student where id=?";
+			// create sql to delete superhero
+			String sql = "delete from superheroes where id=?";
 			
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setInt(1, studentId);
+			myStmt.setInt(1, superheroId);
 			
 			// execute sql statement
 			myStmt.execute();
