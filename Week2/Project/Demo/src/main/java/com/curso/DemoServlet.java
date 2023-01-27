@@ -27,7 +27,7 @@ public class DemoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: Xideral Java Bootcamp ").append(request.getContextPath());
+		response.getWriter().append("Served at: Xideral Curso ").append(request.getContextPath());
 	}
 
 	/**
