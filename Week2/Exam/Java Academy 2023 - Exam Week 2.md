@@ -91,8 +91,6 @@ The Scrum framework is structured in a way that is compatible with product and s
 
     * *<u>What is the improvement in the process that the team can implement immediately?</u>*
 
-      
-
     It is crucial that people, as a team, take responsibility for their process and their results and seek solutions as a team. At the same time, they should have the strength to address uncomfortable issues in a solution-oriented, not accusatory way. And the rest of the team must have the maturity to hear the feedback, accept it, and seek a solution, not become defensive. 
 
     At the end of the meeting, the team and the Scrum Master should agree on a process improvement that they will implement in the next sprint. This process improvement, also called *<u>kaizen</u>*, should be incorporated into the next sprint log, with acceptance tests. In this way, the team will be able to easily see if they actually implemented the improvement and what effect it had on the speed.
@@ -110,7 +108,71 @@ The Scrum framework is structured in a way that is compatible with product and s
 
 ### Question 2 - Explain what is a branch, merge and conflicts
 
+#### Branching
 
+A branch in Git is a distinct line of development that enables several users to work simultaneously on the same codebase without affecting each other's contributions. A branch is a duplicate of the codebase's current state that can be produced and edited separately from the main branch. Thus, modifications can be made, tested, and then when ready, merged back into the main branch.
+
+<img src="./imgs/branches.png" alt="Git branches" style="zoom: 50%;" />
+
+The basic command to create a new branch in Git is"`git branch`. The command takes the name of the new branch as an argument, like so:
+
+```bash
+git branch a-new-branch
+```
+
+This creates a new branch called "my-new-branch" that is based on the current branch you are on. To switch to the new branch and start working on it, use the command "git checkout" followed by the name of the branch:
+
+```bash
+git checkout a-new-branch
+```
+
+Once you are on the new branch, you can make changes and commit them as usual. To see a list of all the branches in the repository, use the command `git branch -a`. To switch back to the `main` branch, you can use the command "git checkout `main`"
+
+You can also create a new branch and switch to it in a single command by using the command
+
+```bash
+git checkout -b a-new-branch
+```
+
+<u>This command creates a new branch called `a-new-branch` and switches to it all in one step.</u>
+
+
+
+##### Gitflow
+
+In order to manage *software development*, Git uses a particular branching model called ***Gitflow***. It is a well-liked and frequently used *branching mechanism* that aids developers in managing and organizing branches inside of a Git repository. 
+
+The **`main`** branch and the **`develop`** branch serve as the foundation for the gitflow concept. While the develop branch is used for continuing development, the main branch represents code that is ready for production. **Feature branches** are developed from the develop branch to work on particular features or bug fixes. A feature is finished when it is ready and then merged back into the develop branch. When the develop branch is stable, it is merged with the master branch, which results in the creation of a new release.
+
+<img src="./imgs/gitflow.png" alt="Gitflow" style="zoom:50%;" />
+
+Additional branches for managing releases and **hotfixes** are also included in Gitflow. The git-flow command-line tool, which automates many of the branching and merging processes involved in this workflow.
+
+
+
+#### Merge
+
+A merge in Git is the action of integrating changes from one branch with another. When work on a feature or bug repair is finished and has to be merged into the main development branch, this is normally done (often called "main" or "master").
+
+The `git merge` command is the most popular way to carry out a merging in Git, while there are other approaches as well. This command's basic syntax is as follows: `git merge <branch>`. 
+
+E.g.  `git merge feature_x`
+
+Git will automatically try to merge the changes from `feature x` into `main` when you run this command. The merge will be successful if there are no conflicts between the two branches, and you can continue working on the "main" branch.
+
+It's worth noting that git also provides a command `git merge --no-ff` that will always create a new commit instead of fast forwarding. This can be useful for keeping a record of when a feature was merged into the main branch.
+
+Another command `git merge --squash` that will combine all the commits of the branch to be merged into one single commit. This is useful when you don't want to keep the commits history of the feature branch and also make the master branch cleaner.
+
+![merge](./imgs/merge.png)
+
+
+
+#### Conflicts
+
+Conflicts arise when Git is unable to automatically integrate changes made to the same lines of code in both branches. Git will then prompt the developer to manually resolve the dispute by determining which modifications to preserve and which to discard by marking the conflicting lines in the code. The developer can commit the modifications and continue the merge process after the conflicts have been resolved.
+
+In short terms, conflicts occur when the same lines of code are edited in two branches at the same time and Git is unable to automatically merge the changes. ![conflict](./imgs/conflict.png)
 
 ------
 
@@ -159,13 +221,104 @@ This is a visual representation of what is going on in the example above.
 
 
 
+#### Monolithic Architecture
+
+Is a software development approach where all the components of a software application are bundled together in a single unit or codebase.  is known to be the conventional method usedto build apps. This is basically a consolidated model, where all the software elements are interconnected.
+
+In other words, this indicates that the application's various functionalities are all tightly connected and integrated into a single codebase, making it challenging to change or update one aspect of the application without also affecting the others.
+
+<img src="./imgs/monolithic.png" alt="Monolithic" style="zoom:150%;" />
+
+
+
+#### Microservices
+
+Microservices architecture is a software development approach in which a software application is divided into small, independent services. Each microservice is in charge of a specific function and can be developed, tested, and deployed independently of the others. This provides greater flexibility and scalability because changes or updates to individual services do not affect the entire application.
+
+<img src="./imgs/Microservices.png" alt="Microservices" style="zoom:150%;" />
+
+
+
+#### Which one is better?
+
+In terms of design, monolithic applications typically have a single, large codebase that tightly integrates all of the application's components, whereas microservices applications have multiple small codebases, each responsible for a specific functionality. 
+
+The codebase is usually shared between different components or functionalities in monolithic architecture, which means that any changes made to one component can potentially affect other components, making it more difficult to understand and maintain. Microservices architecture, on the other hand, allows for a clear separation of concerns, making it much easier to understand and maintain the various components of the application.
+
+As the application grows, monolithic architecture can become a *<u>bottleneck</u>* in terms of scaling. When a single component becomes a bottleneck, the entire application suffers. Individual services in a microservices architecture can be scaled independently, reducing the risk of bottlenecks and increasing the overall scalability of the application.
+
+**Go with the monolithic architecture if:**
+
+- Working on a startup and only a small team will be building the application.
+
+- Don’t have the time or money to spend on building an app using a complex architecture.
+
+- Your team have the experience using this architecture and know that there wouldn’t be any performance bottlenecks.
+
+  
+
+**Go with the monolithic architecture if:**
+
+- You have diverse teams with people with knowledge and experience in different languages.
+- You don’t have to meet a strict deadline, because this architecture requires proper research and planning in order to be successful.
+- If scalability is one of your big concerns.
+
+To summarize, monolithic architecture is a traditional approach in which all of an application's components are tightly integrated into a single codebase, whereas microservices architecture is a more modern approach in which an application is broken down into a collection of small, independent services that can be developed, tested, and deployed independently.
+
+
+
 ------
 
 
 
 ### Question 5 - Explain what are the exceptions
 
+An exception is an ***occurrence during program execution*** that disrupts the normal flow of instructions. Errors, such as a missing file, a failed network connection, or an invalid input, are commonly the cause of exceptions. When an exception occurs, the Java runtime system creates an object representing the exception and sends it to the nearest exception handler.
 
+![image-20230127123904434](/home/vic/.config/Typora/typora-user-images/image-20230127123904434.png)
+
+#### Types of Exceptions
+
+* **Throwable:** It is a class that represents everything that can be "**thrown**" in Java. It contains a snapshot of the state of the memory stack at the moment the object was created, which is also called ***stack trace*** or ***call chain.*** Below, some methods of the Throwable class will be shown along with a description.
+
+  * **getMessage():**  Used to get an error message associated with an exception.
+
+  * **printStackTrace():** Used to print the record of the stack where the exception has been initiated
+
+  * **toString():** It is used to display the name of an exception along with the message returned by getMessage().
+
+  * **void printStrackTrace:**  Displays an object and the stack trace of the call stack trace.
+
+    
+
+* **Error:** "t indicates a serious problem, as this problem cannot be solved in any way, so a program normally stops. Some examples of error can be: if you want to access the hard drive, but it is damaged, having no internet connection, a failure in electricity, not having permission to modify a file, among others. We can conclude that these errors are external to the program.
+
+  * **AnnotationFormatError**: Generated when the annotation parser attempts to read an annotation from a class file and determines that the annotation is malformed.
+  * **AssertionError**: Thrown to indicate that an assertion has failed.
+  * **CoderMalfunctionError**: An error is generated when the decodeLoop method of a CharsetDecoder, or the encodeLoop method of a CharsetEncoder, throws an unexpected exception.
+  * **FactoryConfigurationError:** Thrown when there is a configuration problem with Parser Factories. This error will usually be generated when the class of a parser factory specified in the system properties cannot be found or instantiated
+
+
+
+* **Runtime Exception (Unchecked):** In this type of exceptions, the compiler does not require the use of try-catch clauses. Therefore, the only thing we can do is that our program fails and shows the error message to the user, in this way after knowing the error we can implement a try-catch so that the compiler allows us to run the program.
+
+  * **ArithmeticException:** Thrown when an exceptional arithmetic condition has occurred. For example, an integer "divide by zero" returns an instance of this class.
+
+  * **IllegalArgumentException:** Thrown to indicate that an illegal or inappropriate argument has been passed to a method.
+
+  *  **ArrayStoreException:** Thrown to indicate that an attempt was made to store the wrong object type in an object array.
+
+  * **IndexOutOfBoundsException:** Thrown to indicate that an index of some type (such as an array, string, or vector) is out of range.
+
+    
+
+* **Checked Exception:** 
+
+  In this type of exceptions, the compiler requires the use of try-catch clauses or requires throwing the exceptions. Therefore, it is less likely that this type of exceptions occur since the compiler indicates when we have an error of this type.
+
+  * **PrintException:**The PrintException class encapsulates a printing-related error condition that occurred while using an instance of the print service.
+  * **PrinterException:** The PrinterException class and its subclasses are used to indicate that an exceptional condition has occurred in the printing system.
+  *  **IOException:**Indicates that an I/O exception of some kind has occurred. This class is the general class of exceptions thrown by interrupted or failed I/O operations.
 
 ------
 
