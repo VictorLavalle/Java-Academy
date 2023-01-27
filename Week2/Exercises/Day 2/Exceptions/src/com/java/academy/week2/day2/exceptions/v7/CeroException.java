@@ -1,4 +1,4 @@
-package com.java.academy.week2.day2.exceptions.v6;
+package com.java.academy.week2.day2.exceptions.v7;
 
 public class CeroException extends Exception{
 

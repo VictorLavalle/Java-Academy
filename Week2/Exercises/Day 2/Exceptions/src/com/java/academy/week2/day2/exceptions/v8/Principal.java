@@ -1,4 +1,4 @@
-package com.java.academy.week2.day2.exceptions.v7;
+package com.java.academy.week2.day2.exceptions.v8;
 
 public class Principal {
 
@@ -14,7 +14,9 @@ public class Principal {
         // We can catch multiple exceptions in a single catch block
         try {
             result = calculateDivision(x, y);
-        } catch (CeroException | NegativeException | UnsupportedOperationException e) {
+
+        } catch (CeroException | NegativeException e){  //Multicatch
+            //it's not necessary to use catch (UnsupportedOperationException e) because it's a RuntimeException and it's not checked
             e.printStackTrace();
         }
 

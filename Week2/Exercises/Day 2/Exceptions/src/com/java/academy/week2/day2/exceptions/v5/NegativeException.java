@@ -1,4 +1,4 @@
-package com.java.academy.week2.day2.exceptions.v5.v4;
+package com.java.academy.week2.day2.exceptions.v5;
 
 public class NegativeException extends Exception{
 

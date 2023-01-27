@@ -11,13 +11,10 @@ public class Principal {
         int result = 0;
 
 
+        // We can catch multiple exceptions in a single catch block
         try {
             result = calculateDivision(x, y);
-        } catch (CeroException e) {
-            e.printStackTrace();
-        } catch (NegativeException e) {
-            e.printStackTrace();
-        } catch (UnsupportedOperationException e) {
+        } catch (CeroException | NegativeException | UnsupportedOperationException e) {
             e.printStackTrace();
         }
 

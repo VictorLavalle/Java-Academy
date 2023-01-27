@@ -12,21 +12,25 @@ public class Principal {
 
 
         //Implementation of the try-catch block
-        try {
-            result = calculateDivision(x, y); //Do the division and store the result in the variable result
-        } catch (ArithmeticException e) { //Throw an exception if y is zero
-            System.out.println("Can't divide by zero.");
-        } finally {
-            System.out.println("This line will always be executed"); //This line will always be executed even if there is an exception
-        }
-
+        //try {
+        //    result = calculateDivision(x, y);
+        //  } catch (CeroException e) {
+        //      e.printStackTrace();
+        //  }
 
         System.out.println(result);
         System.out.println("Program successfully finished");
     }
 
     // This method will throw an exception if y is zero
-    private static int calculateDivision(int x, int y) {
+    // The exception is thrown using the keyword "throws" and the name of the exception
+    // Doing this, the method will not handle the exception, but will throw it to the caller,
+    // it will be responsible for handling the exception (try-catch block).
+    // This way of handling exceptions is called "propagation"
+    private static int calculateDivision(int x, int y) throws CeroException {
+        if (y == 0) {
+            throw new CeroException("Division by zero is not allowed");
+        }
         return x / y;
     }
 

@@ -17,7 +17,10 @@ public class Principal {
             e.printStackTrace();
         } catch (NegativeException e) {
             e.printStackTrace();
+        } catch (UnsupportedOperationException e) {
+            e.printStackTrace();
         }
+
 
         System.out.println(result);
         System.out.println("Program successfully finished");

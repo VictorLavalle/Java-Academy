@@ -1,4 +1,4 @@
-package com.java.academy.week2.day2.exceptions.v1;
+package com.java.academy.week2.day2.exceptions.v2;
 
 public class Principal {
 
@@ -15,13 +15,13 @@ public class Principal {
         try {
             result = calculateDivision(x, y); //Do the division and store the result in the variable result
         } catch (ArithmeticException e) { //Throw an exception if y is zero
-            System.out.println("Can't divide by zero. \n Exception: " + e.getMessage());
-        } catch (Exception e) {//Throw an exception if there is any other problem
-            System.out.println("Please, check your input data. \n Exception: " + e.getMessage());
+            System.out.println("Can't divide by zero.");
+        } finally {
+            System.out.println("This line will always be executed"); //This line will always be executed even if there is an exception
         }
 
 
-        System.out.println(result); // This line will be executed if there is no exception thrown by the method
+        System.out.println(result);
         System.out.println("Program successfully finished");
     }
 

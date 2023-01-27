@@ -1,4 +1,4 @@
-package com.java.academy.week2.day2.exceptions.v5.v4;
+package com.java.academy.week2.day2.exceptions.v5;
 
 public class Principal {
 
@@ -6,8 +6,8 @@ public class Principal {
 
         // A classic example of a division by zero
 
-        int x = 5;
-        int y = 0;
+        int x = 101;
+        int y = 2;
         int result = 0;
 
 
@@ -32,6 +32,9 @@ public class Principal {
         }
         if (y < 0) {
             throw new NegativeException("Division by negative number is not allowed");
+        }
+        if (x > 100) {
+            throw new UnsupportedOperationException("x no puede ser mayor a 100");
         }
         return x / y;
     }
