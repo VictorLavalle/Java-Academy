@@ -412,3 +412,23 @@ try (FileReader fileReader = new FileReader("file.txt")) {
 
 ### Question 7 - Explain and mention the types of Collections
 
+**Java Collections** is a framework for storing and manipulating collections of objects. It includes a number of classes and interfaces, such as **List**, **Set**, **Queue**, and **Map**, that can be used to store and manipulate data in various ways. These classes and interfaces allow you to work with a group of objects as a single unit rather than each object individually. They are included in the **java.util package** and can be found in any Java application.
+
+![Collections](./imgs/Collections.png)
+
+
+
+* **List interface**: is used to store a set of elements in a particular order. It supports duplicate elements and offers methods for adding, removing, and accessing elements by index. The List interface is commonly implemented by the `ArrayList` and `LinkedList` classes.
+
+  
+
+* **Set interface:** is used to store a set of distinct elements. It does not permit duplicate elements and provides methods for adding and removing elements, as well as determining whether an element is present in the set. The Set interface is commonly implemented by the `HashSet` and `TreeSet` classes.
+
+  
+
+* **Queue interface**: like a list, is used to store a collection of elements in a specific order, but it also provides methods for adding and removing elements in a specific order. The `PriorityQueue` class is a common Queue interface implementation.
+
+  
+
+* **Map interface:** is used to store a collection of key-value pairs, each of which is unique and corresponds to a specific value. This one doesn't come from **Collections**, but anyway it includes methods for *adding*, *removing*, and *retrieving* elements based on their ***key***, making feel similar when working with relational databases  . The Map interface is commonly implemented by the `HashMap` and `TreeMap` classes.
+
