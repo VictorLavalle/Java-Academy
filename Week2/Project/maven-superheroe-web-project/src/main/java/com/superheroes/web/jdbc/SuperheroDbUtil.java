@@ -23,48 +23,45 @@ public class SuperheroDbUtil {
 	}
 	
 	public List<Superhero> getSuperheroes() throws Exception {
-		
-		List<Superhero> superheroes = new ArrayList<>();
-		
-		Connection myConn = null;
-		Statement myStmt = null;
-		ResultSet myRs = null;
-		
-		try {
-			// get a connection
-			myConn = dataSource.getConnection();
-			
-			// create sql statement
-			String sql = "select * from superheroes order by secret_identity";
-			
-			myStmt = myConn.createStatement();
-			
-			// execute query
-			myRs = myStmt.executeQuery(sql);
-			
-			// process result set
-			while (myRs.next()) {
-				
-				// retrieve data from result set row
-				int id = myRs.getInt("id");
-				String secretIdentity = myRs.getString("secret_identity");
-				String alterEgo= myRs.getString("alter_ego");
-				String superpower = myRs.getString("superpower");
-				
-				// create new superhero object
-				Superhero tempSuperhero = new Superhero(id, secretIdentity, alterEgo, superpower);
-				
-				// add it to the list of superheroes
-				superheroes.add(tempSuperhero);				
-			}
-			
-			// return the list of superheroes
-			return superheroes;		
-		}
-		finally {
-			// close JDBC objects
-			close(myConn, myStmt, myRs);
-		}		
+	    // Initialize an empty list to store the superheroes
+	    List<Superhero> superheroes = new ArrayList<>();
+
+	    // SQL query to select all superheroes ordered by secret identity
+	    String sql = "select * from superheroes order by secret_identity";
+
+	    
+	    //
+	    // Use try-with-resources statement to automatically close resources
+	    //All these resources implement the AutoCloseable.  
+	    // This means that once the try block is finished executing, will be closed automatically
+	    //
+	    try (
+	    	    //create a connection to the database using the dataSource object
+	    	    Connection myConn = dataSource.getConnection();
+	    	    //create a statement object to execute the query
+	    	    Statement myStmt = myConn.createStatement();
+	    	    //execute the query and get the result set
+	    	    ResultSet myRs = myStmt.executeQuery(sql)
+	    	){
+
+	        // Iterate through the result set and add each superhero to the list
+	        while (myRs.next()) {
+	            // Retrieve data from result set row
+	            int id = myRs.getInt("id");
+	            String secretIdentity = myRs.getString("secret_identity");
+	            String alterEgo= myRs.getString("alter_ego");
+	            String superpower = myRs.getString("superpower");
+
+	            // Create new superhero object
+	            Superhero tempSuperhero = new Superhero(id, secretIdentity, alterEgo, superpower);
+
+	            // Add it to the list of superheroes
+	            superheroes.add(tempSuperhero);				
+	        }
+
+	        // Return the list of superheroes
+	        return superheroes;		
+	    }
 	}
 
 	private void close(Connection myConn, Statement myStmt, ResultSet myRs) {
@@ -89,19 +86,18 @@ public class SuperheroDbUtil {
 
 	public void addSuperhero(Superhero theSuperhero) throws Exception {
 
-		Connection myConn = null;
-		PreparedStatement myStmt = null;
+		//create the sql  query for insert
+		String sql = "insert into superheroes "
+				   + "(secret_identity, alter_ego, superpower) "
+				   + "values (?, ?, ?)";
 		
-		try {
-			// get db connection
-			myConn = dataSource.getConnection();
-			
-			// create sql for insert
-			String sql = "insert into superheroes "
-					   + "(secret_identity, alter_ego, superpower) "
-					   + "values (?, ?, ?)";
-			
-			myStmt = myConn.prepareStatement(sql);
+		try (
+				//
+				// Also Applied try-with-resources in this method.
+				// create a connection to the database and a prepared statement for the query  
+				//
+				Connection myConn = dataSource.getConnection();
+			 PreparedStatement myStmt = myConn.prepareStatement(sql)) {
 			
 			// set the param values for the superhero
 			myStmt.setString(1, theSuperhero.getSecretIdentity());
@@ -111,11 +107,8 @@ public class SuperheroDbUtil {
 			// execute sql insert
 			myStmt.execute();
 		}
-		finally {
-			// clean up JDBC objects
-			close(myConn, myStmt, null);
-		}
 	}
+	
 
 	public Superhero getSuperhero(String theSuperheroId) throws Exception {
 
@@ -230,18 +223,3 @@ public class SuperheroDbUtil {
 		}	
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
