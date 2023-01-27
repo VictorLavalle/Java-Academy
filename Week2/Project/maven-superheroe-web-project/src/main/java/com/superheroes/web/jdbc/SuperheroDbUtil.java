@@ -9,6 +9,11 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+/**
+ * This code is a Java class called SuperheroDbUtil that connects to a database 
+ * using a DataSource and performs CRUD operations on a "superheroes" table
+ */
+
 public class SuperheroDbUtil {
 
 	private DataSource dataSource;
@@ -53,6 +58,7 @@ public class SuperheroDbUtil {
 				superheroes.add(tempSuperhero);				
 			}
 			
+			// return the list of superheroes
 			return superheroes;		
 		}
 		finally {
