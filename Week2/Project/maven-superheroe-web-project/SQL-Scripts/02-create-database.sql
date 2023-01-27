@@ -38,9 +38,9 @@ CREATE TABLE `superheroes` (
 --
 
 LOCK TABLES `superheroes` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `superheroes` DISABLE KEYS */;
 INSERT INTO `superheroes` VALUES (1,'Clark Kent','Superman','Super Strength, Flight, Heat Vision'),(2,'Barry Allen','The Flash','Super Speed'),(3,'Bruce Wayne','Batman','Intelligence, Wealth, Fighting Skills'),(4,'Peter Parker','Spider-Man','Super Strength, Agility, Wall-Crawling'),(5,'Tony Stark','Ironman','Intelligence, Wealth, Fighting Skills, Weapons Systems');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+/*!40000 ALTER TABLE `superheroes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

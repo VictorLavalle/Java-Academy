@@ -13,24 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * Servlet implementation class StudentControllerServlet
+ * Servlet implementation class SuperheroControllerServlet
  */
-@WebServlet("/StudentControllerServlet")
+@WebServlet("/SuperheroControllerServlet")
 public class SuperheroControllerServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 
-	private SuperheroDbUtil studentDbUtil;
+	private SuperheroDbUtil superheroDbUtil;
 	
-	@Resource(name="jdbc/web_student_tracker")
+	@Resource(name="jdbc/web_superheroes_project")
 	private DataSource dataSource;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		
-		// create our student db util ... and pass in the conn pool / datasource
+		// create our superhero db util ... and pass in the conn pool / datasource
 		try {
-			studentDbUtil = new SuperheroDbUtil(dataSource);
+			superheroDbUtil = new SuperheroDbUtil(dataSource);
 		}
 		catch (Exception exc) {
 			throw new ServletException(exc);
@@ -43,7 +44,7 @@ public class SuperheroControllerServlet extends HttpServlet {
 			// read the "command" parameter
 			String theCommand = request.getParameter("command");
 			
-			// if the command is missing, then default to listing students
+			// if the command is missing, then default to listing superheroes
 			if (theCommand == null) {
 				theCommand = "LIST";
 			}
@@ -52,27 +53,27 @@ public class SuperheroControllerServlet extends HttpServlet {
 			switch (theCommand) {
 			
 			case "LIST":
-				listStudents(request, response);
+				listSuperheroes(request, response);
 				break;
 				
 			case "ADD":
-				addStudent(request, response);
+				addSuperhero(request, response);
 				break;
 				
 			case "LOAD":
-				loadStudent(request, response);
+				loadSuperhero(request, response);
 				break;
 				
 			case "UPDATE":
-				updateStudent(request, response);
+				updateSuperhero(request, response);
 				break;
 			
 			case "DELETE":
-				deleteStudent(request, response);
+				deleteSuperhero(request, response);
 				break;
 				
 			default:
-				listStudents(request, response);
+				listSuperheroes(request, response);
 			}
 				
 		}
@@ -82,85 +83,85 @@ public class SuperheroControllerServlet extends HttpServlet {
 		
 	}
 
-	private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
+	private void deleteSuperhero(HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 
-		// read student id from form data
-		String theStudentId = request.getParameter("studentId");
+		// read superhero id from form data
+		String theSuperheroId = request.getParameter("superheroId");
 		
-		// delete student from database
-		studentDbUtil.deleteStudent(theStudentId);
+		// delete superhero from database
+		superheroDbUtil.deleteSuperhero(theSuperheroId);
 		
-		// send them back to "list students" page
-		listStudents(request, response);
+		// send them back to "list superheroes" page
+		listSuperheroes(request, response);
 	}
 
-	private void updateStudent(HttpServletRequest request, HttpServletResponse response)
+	private void updateSuperhero(HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 
-		// read student info from form data
-		int id = Integer.parseInt(request.getParameter("studentId"));
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String email = request.getParameter("email");
+		// read superhero info from form data
+		int id = Integer.parseInt(request.getParameter("superheroId"));
+		String secretIdentity = request.getParameter("secretIdentity");
+		String alterEgo = request.getParameter("alterEgo");
+		String superpower = request.getParameter("superpower");
 		
-		// create a new student object
-		Superhero theStudent = new Superhero(id, firstName, lastName, email);
+		// create a new superhero object
+		Superhero theSuperhero = new Superhero(id, secretIdentity, alterEgo, superpower);
 		
 		// perform update on database
-		studentDbUtil.updateStudent(theStudent);
+		superheroDbUtil.updateSuperhero(theSuperhero);
 		
-		// send them back to the "list students" page
-		listStudents(request, response);
+		// send them back to the "list superheroes" page
+		listSuperheroes(request, response);
 		
 	}
 
-	private void loadStudent(HttpServletRequest request, HttpServletResponse response) 
+	private void loadSuperhero(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
 
-		// read student id from form data
-		String theStudentId = request.getParameter("studentId");
+		// read superhero id from form data
+		String theSuperheroId = request.getParameter("superheroId");
 		
-		// get student from database (db util)
-		Superhero theStudent = studentDbUtil.getStudent(theStudentId);
+		// get superhero from database (db util)
+		Superhero theSuperhero = superheroDbUtil.getSuperhero(theSuperheroId);
 		
-		// place student in the request attribute
-		request.setAttribute("THE_STUDENT", theStudent);
+		// place superhero in the request attribute
+		request.setAttribute("THE_SUPERHERO", theSuperhero);
 		
-		// send to jsp page: update-student-form.jsp
+		// send to jsp page: update-superhero-form.jsp
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("/update-student-form.jsp");
+				request.getRequestDispatcher("/update-superhero-form.jsp");
 		dispatcher.forward(request, response);		
 	}
 
-	private void addStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	private void addSuperhero(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		// read student info from form data
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String email = request.getParameter("email");		
+		// read superhero info from form data
+		String secretIdentity = request.getParameter("secretIdentity");
+		String alterEgo = request.getParameter("alterEgo");
+		String superpower = request.getParameter("superpower");
 		
-		// create a new student object
-		Superhero theStudent = new Superhero(firstName, lastName, email);
+		// create a new superhero object
+		Superhero theSuperhero = new Superhero(secretIdentity, alterEgo, superpower);
 		
-		// add the student to the database
-		studentDbUtil.addStudent(theStudent);
+		// add the superhero to the database
+		superheroDbUtil.addSuperhero(theSuperhero);
 				
-		// send back to main page (the student list)
-		listStudents(request, response);
+		// send back to main page (the superhero list)
+		listSuperheroes(request, response);
 	}
 
-	private void listStudents(HttpServletRequest request, HttpServletResponse response) 
+	private void listSuperheroes(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
 
-		// get students from db util
-		List<Superhero> students = studentDbUtil.getStudents();
+		// get superheroes from db util
+		List<Superhero> superheroes = superheroDbUtil.getSuperheroes();
 		
-		// add students to the request
-		request.setAttribute("STUDENT_LIST", students);
+		// add superheroes to the request
+		request.setAttribute("SUPERHEROES_LIST", superheroes);
 				
 		// send to JSP page (view)
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-students.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-superheroes.jsp");
 		dispatcher.forward(request, response);
 	}
 

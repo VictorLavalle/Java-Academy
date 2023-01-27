@@ -1,71 +1,101 @@
 package com.superheroes.web.jdbc;
 
-
 //POJO - @Entity
 public class Superhero {
 	
 	private int id;                                              // Unique identifier for each superhero
     private String secretIdentity; 			  // Secret identity of the superhero
     private String alterEgo;						  // Alter ego of the superhero
-    private String superPower;				  // Superpower of the superhero
+    private String superpower;				  // Superpower of the superhero
+    
     
     //Constructor to create a new superhero with only secret identity, alter ego and superpower
-	public Superhero(String secretIdentity, String alterEgo, String superPower) {
+	public Superhero(String secretIdentity, String alterEgo, String superpower) {
 		this.secretIdentity = secretIdentity;
 		this.alterEgo = alterEgo;
-		this.superPower = superPower;
+		this.superpower = superpower;
 	}
 	
+
 	// Constructor to create a new superhero with id, secret identity, alter ego and superpower
-	public Superhero(int id, String secretIdentity, String alterEgo, String superPower) {
+	public Superhero(int id, String secretIdentity, String alterEgo, String superpower) {
 		this.id = id;
 		this.secretIdentity = secretIdentity;
 		this.alterEgo = alterEgo;
-		this.superPower = superPower;
+		this.superpower = superpower;
 	}
 
-	// Getter and setter methods for the id of the superhero
+
+	/**
+	 * @return the id
+	 */
 	public int getId() {
 		return id;
 	}
 
+
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	// Getter and setter methods for the secret identity of the superhero
+
+
+	/**
+	 * @return the secretIdentity
+	 */
 	public String getSecretIdentity() {
 		return secretIdentity;
 	}
 
+
+	/**
+	 * @param secretIdentity the secretIdentity to set
+	 */
 	public void setSecretIdentity(String secretIdentity) {
 		this.secretIdentity = secretIdentity;
 	}
-	
-	// Getter and setter methods for the alter ego of the superhero
+
+
+	/**
+	 * @return the alterEgo
+	 */
 	public String getAlterEgo() {
 		return alterEgo;
 	}
 
+
+	/**
+	 * @param alterEgo the alterEgo to set
+	 */
 	public void setAlterEgo(String alterEgo) {
 		this.alterEgo = alterEgo;
 	}
-	
-	// Getter and setter methods for the superpower of the superhero
-	public String getSuperPower() {
-		return superPower;
+
+
+	/**
+	 * @return the superpower
+	 */
+	public String getSuperpower() {
+		return superpower;
 	}
 
-	public void setSuperPower(String superPower) {
-		this.superPower = superPower;
+
+	/**
+	 * @param superpower the superpower to set
+	 */
+	public void setSuperpower(String superpower) {
+		this.superpower = superpower;
 	}
 
-	// Overriding the toString() method for the superhero class
+
 	@Override
 	public String toString() {
-		return "Superhero [id=" + id + ", secretIdentity=" + secretIdentity + ", alterEgo=" + alterEgo + ", superPower="
-				+ superPower + "]";
+		return "Superhero [id=" + id + ", secretIdentity=" + secretIdentity + ", alterEgo=" + alterEgo + ", superpower="
+				+ superpower + "]";
 	}
+
 
 }
 

@@ -49,10 +49,10 @@ public class SuperheroDbUtil {
 				int id = myRs.getInt("id");
 				String secretIdentity = myRs.getString("secret_identity");
 				String alterEgo= myRs.getString("alter_ego");
-				String superPower = myRs.getString("superpower");
+				String superpower = myRs.getString("superpower");
 				
-				// create new student object
-				Superhero tempSuperhero = new Superhero(id, secretIdentity, alterEgo, superPower);
+				// create new superhero object
+				Superhero tempSuperhero = new Superhero(id, secretIdentity, alterEgo, superpower);
 				
 				// add it to the list of superheroes
 				superheroes.add(tempSuperhero);				
@@ -87,7 +87,7 @@ public class SuperheroDbUtil {
 		}
 	}
 
-	public void addStudent(Superhero theSuperhero) throws Exception {
+	public void addSuperhero(Superhero theSuperhero) throws Exception {
 
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -97,7 +97,7 @@ public class SuperheroDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create sql for insert
-			String sql = "insert into superhero "
+			String sql = "insert into superheroes "
 					   + "(secret_identity, alter_ego, superpower) "
 					   + "values (?, ?, ?)";
 			
@@ -106,7 +106,7 @@ public class SuperheroDbUtil {
 			// set the param values for the superhero
 			myStmt.setString(1, theSuperhero.getSecretIdentity());
 			myStmt.setString(2, theSuperhero.getAlterEgo());
-			myStmt.setString(3, theSuperhero.getSuperPower());
+			myStmt.setString(3, theSuperhero.getSuperpower());
 			
 			// execute sql insert
 			myStmt.execute();
@@ -149,13 +149,13 @@ public class SuperheroDbUtil {
 			if (myRs.next()) {
 				String secretIdentity = myRs.getString("secret_identity");
 				String alterEgo = myRs.getString("alter_ego");
-				String superPower = myRs.getString("superpower");
+				String superpower = myRs.getString("superpower");
 				
-				// use the studentId during construction
-				theSuperhero = new Superhero(superheroId, secretIdentity, alterEgo, superPower);
+				// use the superheroId during construction
+				theSuperhero = new Superhero(superheroId, secretIdentity, alterEgo, superpower);
 			}
 			else {
-				throw new Exception("Could not find student id: " + superheroId);
+				throw new Exception("Could not find superhero id: " + superheroId);
 			}				
 			
 			return theSuperhero;
@@ -186,7 +186,7 @@ public class SuperheroDbUtil {
 			// set params
 			myStmt.setString(1, theSuperhero.getSecretIdentity());
 			myStmt.setString(2, theSuperhero.getAlterEgo());
-			myStmt.setString(3, theSuperhero.getSuperPower());
+			myStmt.setString(3, theSuperhero.getSuperpower());
 			myStmt.setInt(4, theSuperhero.getId());
 
 			
@@ -206,7 +206,7 @@ public class SuperheroDbUtil {
 		PreparedStatement myStmt = null;
 		
 		try {
-			// convert student id to int
+			// convert superhero id to int
 			int superheroId = Integer.parseInt(theSuperheroId);
 			
 			// get connection to database
