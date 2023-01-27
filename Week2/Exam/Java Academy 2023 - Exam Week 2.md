@@ -14,9 +14,9 @@
 
 #### What is SCRUM?
 
-Scrum is one of the most popular **agile frameworks**. It is an adaptive, iterative, fast, flexible and efficient framework, designed to deliver significant value quickly throughout the value quickly throughout the project. Scrum ensures **communication transparency** and creates an environment of **collective responsibility** and **continuous progress.**
+Scrum is one of the most popular **agile frameworks**. It is an adaptive, iterative, fast, flexible and efficient framework, designed to deliver significant value quickly throughout the project. Scrum ensures **communication transparency** and creates an environment of **collective responsibility** and **continuous progress.**
 
-The Scrum framework is structured in a way that is compatible with product and service development in all types of industries and on any type of project, regardless of its complexity. A key strength of Scrum is lies in the use of cross-functional, self-organizing and empathetic functional, self-organized and empowered teams that divide their work into short, concentrated **work cycles** called **Sprints**.<img src="./imgs/SCRUM.jpg" alt="SCRUM" style="zoom: 50%;" />
+The Scrum framework is structured in a way that is compatible with product and service development in all types of industries and on any type of project, regardless of its complexity. A key strength of Scrum is that  lies in the use of cross-functional, self-organizing and empathetic functional empowered teams that divide their work into short, concentrated **work cycles** called **Sprints**.<img src="./imgs/SCRUM.jpg" alt="SCRUM" style="zoom: 50%;" />
 
 #### How to implement SCRUM?
 
