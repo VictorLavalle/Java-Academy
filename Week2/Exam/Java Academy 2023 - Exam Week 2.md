@@ -114,19 +114,19 @@ A branch in Git is a distinct line of development that enables several users to 
 
 <img src="./imgs/branches.png" alt="Git branches" style="zoom: 50%;" />
 
-The basic command to create a new branch in Git is"`git branch`. The command takes the name of the new branch as an argument, like so:
+The basic command to create a new branch in Git is `git branch`. The command takes the name of the new branch as an argument, like so:
 
 ```bash
 git branch a-new-branch
 ```
 
-This creates a new branch called `a-new-branch` that is based on the current branch you are on. To switch to the new branch and start working on it, use the command "git checkout" followed by the name of the branch:
+This creates a new branch called `a-new-branch` that is based on the current branch you are on. To switch to the new branch and start working on it, use the command `git checkout` followed by the name of the branch:
 
 ```bash
 git checkout a-new-branch
 ```
 
-Once you are on the new branch, you can make changes and commit them as usual. To see a list of all the branches in the repository, use the command `git branch -a`. To switch back to the `main` branch, you can use the command "git checkout `main`"
+Once you are on the new branch, you can make changes and commit them as usual. To see a list of all the branches in the repository, use the command `git branch -a`. To switch back to the `main` branch, you can use the command `git checkout main`.
 
 You can also create a new branch and switch to it in a single command by using the command
 
@@ -191,7 +191,7 @@ It stands for  - *Model View Controller* -   Is a design pattern, which has as i
 in the image above we can see 3 modules with specific tasks:
 
 * **Model:** Stores and manages data. Most of the time, the models represent tables of a database.
-* **View:** Is the *Graphical Use Interface (GUI)*. This contains all all functionality that directly interacts with the user - like clicking a button, or an enter event. In other words, is a visual representation of the data.
+* **View:** Is the *Graphical Use Interface (GUI)*. This contains all functionality that directly interacts with the user - like clicking a button, or an enter event. In other words, is a visual representation of the data.
 * **Controller**: is the *Master Mind* of the application. It's in charge of connect the model and view. The controller receives input from view, uses logic to translate the input to a demand for the model, the model grabs the data, the controller passes data from the model back to the view for the user to see in a nice display.
 
 
@@ -202,7 +202,7 @@ Using this design pattern allows to take advantage the modular design to the des
 
 An example of the real world is:
 
-1. a **User** clicks a link that points to https://www.udemy.com, so thee browser **makes a request to the web server.**
+1. A **user** clicks a link that points to https://www.udemy.com, so thee browser **makes a request to the web server.**
 2. The url must be checked and pass the request to the **controller**.
 3. The **controller** use the **business logic** to check if the user has been login.
 4. The **controller** use the **models** to access to the data of the application. 
@@ -212,6 +212,8 @@ An example of the real world is:
 ![](./imgs/MVC2.png)
 
 This is a visual representation of what is going on in the example above.
+
+
 
 ------
 
@@ -223,7 +225,7 @@ This is a visual representation of what is going on in the example above.
 
 #### Monolithic Architecture
 
-Is a software development approach where all the components of a software application are bundled together in a single unit or codebase.  is known to be the conventional method usedto build apps. This is basically a consolidated model, where all the software elements are interconnected.
+Is a software development approach where all the components of a software application are bundled together in a single unit or codebase.  is known to be the conventional method to build apps. This is basically a consolidated model, where all the software elements are interconnected.
 
 In other words, this indicates that the application's various functionalities are all tightly connected and integrated into a single codebase, making it challenging to change or update one aspect of the application without also affecting the others.
 
@@ -249,7 +251,7 @@ As the application grows, monolithic architecture can become a *<u>bottleneck</u
 
 **Go with the monolithic architecture if:**
 
-- Working on a startup and only a small team will be building the application.
+- You work on a startup and only a small team will be building the application.
 
 - Don’t have the time or money to spend on building an app using a complex architecture.
 
@@ -257,7 +259,7 @@ As the application grows, monolithic architecture can become a *<u>bottleneck</u
 
   
 
-**Go with the monolithic architecture if:**
+**Go with the microservices architecture if:**
 
 - You have diverse teams with people with knowledge and experience in different languages.
 - You don’t have to meet a strict deadline, because this architecture requires proper research and planning in order to be successful.
@@ -273,7 +275,7 @@ To summarize, monolithic architecture is a traditional approach in which all of 
 
 ### Question 5 - Explain what are the exceptions
 
-An exception is an ***occurrence during program execution*** that disrupts the normal flow of instructions. Errors, such as a missing file, a failed network connection, or an invalid input, are commonly the cause of exceptions. When an exception occurs, the Java runtime system creates an object representing the exception and sends it to the nearest exception handler.
+An exception is an ***occurrence during program execution*** that disrupts the normal flow of instructions. Errors, such as a missing file, a failed network connection, or an invalid input, are commonly the cause of exceptions. When an exception occurs, the `Java runtime system` creates an object representing the exception and sends it to the nearest exception handler.
 
 ![Exceptions](./imgs/exceptions.png)
 
@@ -291,11 +293,11 @@ An exception is an ***occurrence during program execution*** that disrupts the n
 
     
 
-* **Error:** "t indicates a serious problem, as this problem cannot be solved in any way, so a program normally stops. Some examples of error can be: if you want to access the hard drive, but it is damaged, having no internet connection, a failure in electricity, not having permission to modify a file, among others. We can conclude that these errors are external to the program.
+* **Error:** It indicates a serious problem, as this problem cannot be solved in any way, so a program normally stops. Some examples of error can be: if you want to access the hard drive, but it is damaged, having no internet connection, a failure in electricity, not having permission to modify a file, among others. We can conclude that these errors are external to the program.
 
   * **AnnotationFormatError**: Generated when the annotation parser attempts to read an annotation from a class file and determines that the annotation is malformed.
   * **AssertionError**: Thrown to indicate that an assertion has failed.
-  * **CoderMalfunctionError**: An error is generated when the decodeLoop method of a CharsetDecoder, or the encodeLoop method of a CharsetEncoder, throws an unexpected exception.
+  * **CoderMalfunctionError**: An error is generated when the `decodeLoop` method of a `CharsetDecoder`, or the `encodeLoop` method of a `CharsetEncoder`, throws an unexpected exception.
   * **FactoryConfigurationError:** Thrown when there is a configuration problem with Parser Factories. This error will usually be generated when the class of a parser factory specified in the system properties cannot be found or instantiated
 
 
