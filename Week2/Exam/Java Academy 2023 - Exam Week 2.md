@@ -120,7 +120,7 @@ The basic command to create a new branch in Git is"`git branch`. The command tak
 git branch a-new-branch
 ```
 
-This creates a new branch called "my-new-branch" that is based on the current branch you are on. To switch to the new branch and start working on it, use the command "git checkout" followed by the name of the branch:
+This creates a new branch called `a-new-branch` that is based on the current branch you are on. To switch to the new branch and start working on it, use the command "git checkout" followed by the name of the branch:
 
 ```bash
 git checkout a-new-branch
