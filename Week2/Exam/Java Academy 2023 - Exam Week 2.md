@@ -431,4 +431,3 @@ try (FileReader fileReader = new FileReader("file.txt")) {
   
 
 * **Map interface:** is used to store a collection of key-value pairs, each of which is unique and corresponds to a specific value. This one doesn't come from **Collections**, but anyway it includes methods for *adding*, *removing*, and *retrieving* elements based on their ***key***, making feel similar when working with relational databases  . The Map interface is commonly implemented by the `HashMap` and `TreeMap` classes.
-
