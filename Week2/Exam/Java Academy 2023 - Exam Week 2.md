@@ -10,6 +10,8 @@
 
 ### Question 1 - What are the steps to implement SCRUM
 
+
+
 #### What is SCRUM?
 
 SCRUM is an Agile framework for managing projects and product development. It is a flexible and adaptive approach that focuses on delivering value to the customer through iterative and incremental progress.
@@ -53,4 +55,35 @@ SCRUM is based on a set of values and principles that guide the way teams work t
 
 
 
-### Question 4 - 
+### Question 4 - Explain Exceptions
+
+
+
+------
+
+
+
+### Question 5 - Explain what is Multicatch and try -with-resource
+
+
+
+------
+
+
+
+### Question 6 - Design and explain the  MVC pattern design
+
+
+
+#### What is MVC?
+
+It stands for  - *Model View Controller* -   Is a design pattern, which has as its main objective to separate the processes of ***business logic***, ***data access*** and the ***view*** that we will present to the user. This pattern can be used for the development of web, desktop, mobile and  among others.
+
+
+
+------
+
+
+
+### Question 7 - Explain and mention the types of Collections
+
