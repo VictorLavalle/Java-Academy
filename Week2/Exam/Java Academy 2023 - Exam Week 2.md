@@ -317,14 +317,92 @@ An exception is an ***occurrence during program execution*** that disrupts the n
   In this type of exceptions, the compiler requires the use of try-catch clauses or requires throwing the exceptions. Therefore, it is less likely that this type of exceptions occur since the compiler indicates when we have an error of this type.
 
   * **PrintException:**The PrintException class encapsulates a printing-related error condition that occurred while using an instance of the print service.
+
   * **PrinterException:** The PrinterException class and its subclasses are used to indicate that an exceptional condition has occurred in the printing system.
+
   *  **IOException:**Indicates that an I/O exception of some kind has occurred. This class is the general class of exceptions thrown by interrupted or failed I/O operations.
+
+    
 
 ------
 
 
 
 ### Question 6 -  Explain what is Multicatch and try -with-resource
+
+<img src="./imgs/Multicatch.png" alt="Multicatch" style="zoom:67%;" />
+
+#### Mulicatch
+
+Multicatch is a Java feature that allows a single catch block to handle multiple exception types. This results in more efficient and concise code by removing the need for multiple catch blocks when dealing with similar types of exceptions.
+
+For example, let's say you have a method that reads a file and performs some operation on it. If the file cannot be found or if the file format is incorrect, you should catch both the `FileNotFoundException` and the `IOException`. You'd have to use two separate catch blocks like this without multicatch:
+
+```java
+try {
+    // read file and perform operation
+} catch (FileNotFoundException e) {
+    // handle exception
+} catch (IOException e) {
+    // handle exception
+}
+```
+
+With multicatch, you can handle both exceptions in the same catch block like this:
+
+```java
+try {
+    // read file and perform operation
+} catch (FileNotFoundException | IOException e) {
+    // handle exception
+}
+```
+
+
+
+#### Try-With-Resources
+
+ is also a Java feature that allows to **close resources** that are used within a try block automatically. <u>It is no longer necessary to use explicit finally blocks to close the resources.</u> This feature is especially useful when working with **AutoCloseable**-enabled resources such as files, sockets, and database connections.
+
+
+
+A good example is the following:
+
+We want to read the contents of a file and print it in the console. The typical way, would be:
+
+```java
+FileReader fileReader = null;
+try {
+    fileReader = new FileReader("file.txt");
+    // read and print file contents
+} catch (FileNotFoundException e) {
+    // handle exception
+} catch (IOException e) {
+    // handle exception
+} finally {
+    if (fileReader != null) {
+        try {
+            fileReader.close();
+        } catch (IOException e) {
+            // handle exception
+        }
+    }
+}
+```
+
+
+
+With try-with-resources, we can automatically close the file by declaring it in the try statement (it's not need to explicitly close the resource after using it):
+
+```java
+try (FileReader fileReader = new FileReader("file.txt")) {
+    // read and print file contents
+} catch (FileNotFoundException e) {
+    // handle exception
+} catch (IOException e) {
+    // handle exception
+}
+```
 
 
 
