@@ -55,6 +55,33 @@ It stands for  - *Model View Controller* -   Is a design pattern, which has as i
 
 
 
+![MVC](./imgs/MVC.png)
+
+in the image above we can see 3 modules with specific tasks:
+
+* **Model:** Stores and manages data. Most of the time, the models represent tables of a database.
+* **View:** Is the *Graphical Use Interface (GUI)*. This contains all all functionality that directly interacts with the user - like clicking a button, or an enter event. In other words, is a visual representation of the data.
+* **Controller**: is the *Master Mind* of the application. It's in charge of connect the model and view. The controller receives input from view, uses logic to translate the input to a demand for the model, the model grabs the data, the controller passes data from the model back to the view for the user to see in a nice display.
+
+
+
+Using this design pattern allows to take advantage the modular design to the designers and developers to work together and to rapidly prototype. This separation also allows changes to be made to one part of the application without affecting the others.
+
+
+
+An example of the real world is:
+
+1. a **User** clicks a link that points to https://www.udemy.com, so thee browser **makes a request to the web server.**
+2. The url must be checked and pass the request to the **controller**.
+3. The **controller** use the **business logic** to check if the user has been login.
+4. The **controller** use the **models** to access to the data of the application. 
+5. Once the **controller** finish with the data, it send the data to the **view**. The **view** take this data and get them ready to show them to the user. 
+6. Once the object in charge of process all the needed data to build a complete view, it is given back to the user.
+
+![](./imgs/MVC2.png)
+
+This is a visual representation of what is going on in the example above.
+
 ------
 
 
