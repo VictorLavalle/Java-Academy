@@ -1,0 +1,10 @@
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\controller\ProfessorController.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\repository\ProfessorRepository.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\repository\S3Repository.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\entity\Professor.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\repository\StudentRepository.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\controller\S3Controller.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\awsconfig\Auth.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\controller\StudentController.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\entity\Student.java
+D:\UADY\Optativas\AWS\Proyecto Final\Segunda Entrega\AWS-REST\src\main\java\com\aws\rest\RestAwsApplication.java

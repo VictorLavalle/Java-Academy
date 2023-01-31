@@ -1,0 +1,10 @@
+com\aws\rest\awsconfig\Auth.class
+com\aws\rest\controller\StudentController.class
+com\aws\rest\entity\Professor.class
+com\aws\rest\repository\StudentRepository.class
+com\aws\rest\repository\S3Repository.class
+com\aws\rest\entity\Student.class
+com\aws\rest\repository\ProfessorRepository.class
+com\aws\rest\RestAwsApplication.class
+com\aws\rest\controller\ProfessorController.class
+com\aws\rest\controller\S3Controller.class
