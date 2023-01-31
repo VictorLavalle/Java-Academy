@@ -1,4 +1,4 @@
-# AWS-REST
+# REST API
 
 This project is a REST API to practice unit testing in Java Academy
 
