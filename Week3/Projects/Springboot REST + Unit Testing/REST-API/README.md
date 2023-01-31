@@ -3,7 +3,7 @@
 This project is a REST API to practice unit testing in Java Academy
 
 ## Installation ⚙️
-1. Clone the repository or download the <a href="https://github.com/VictorLavalle/AWS-REST/releases/tag/v1.1"> zip file </a>.
+1. Clone the repository or download from <a href="https://github.com/VictorLavalle/JavaAcademy/tree/Week3/Week3/Projects/Springboot%20REST%20%2B%20Unit%20Testing"></a>.
 2. Move to the folder
 3. If you want to check the code open it in your IDE, if only wants to test it go to the folder `release`
 4. Locate the file `REST-API.jar`

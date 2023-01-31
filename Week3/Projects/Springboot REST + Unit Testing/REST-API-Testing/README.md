@@ -1,9 +1,9 @@
 # Unit Testing For REST API
-Tests Automaticos para SICEI
+Automated Test for the REST API project
 
 Instrucciones:
 
-- Instalar maven
-- Moverse a la carpeta del proyecto
+- Install maven
+- Move to the project folder
 - `mvn clean test`
-- Revisar el HTML `target/site/surefire-report.html` para los resultados
+- Check the HTML `target/site/surefire-report.html` to see the results
