@@ -98,13 +98,23 @@
 
   Useful commands:
 
-  `git stash list` to view the list of stashes.
+  `git stash list` Shows the list of stashes.
 
-  `git stash apply` to apply a stash
+  `git stash show` Shows details of a specific stash entry
 
-  `git stash apply stash@{index} ` to apply a specific stash
+  `git stash apply` Applies the changes in a stash entry to the current working branch.
+
+  `git stash pop` Applies the changes in a stash entry and removes it from the stash list.
+
+  `git stash apply stash@{index} ` Applies a specific stash
 
   `git stash drop stash@{<index>}`to  discard a stash 
+
+  `git stash clear` Removes all stash entries.
+
+  
+
+  ![Git Stash](./imgs/Git-Stash.png)
 
   
 
@@ -112,7 +122,11 @@
 
   
 
-- **Cherry-pick:** The cherry-pick command allows users to apply specific commits from one branch to another. This is useful when a user wants to bring over specific changes from one branch to another, without merging the entire branch.
+- **Cherry-pick:** The cherry-pick command allows users to apply specific commits from one branch to another. This is useful when a user wants to bring over specific changes from one branch to another, without merging the entire branch. Also, it is required for bug fixes because bugs are committed to the development branch. 
+
+  Is usual to use  `git cherry-pick` instead of alternative options that apply changes in the specified commits, such as `git diff`, to avoid wasteful disputes. If a full branch combine is impossible due to incompatible versions of the multiple Git branches, this utility comes in handy.
+
+  In the other hand, *Cherry-picking* is usually discouraged in the developer community. The primary reason is that it creates duplicate commits, but you also lose the ability to track your commit history.
 
 
 
@@ -1046,5 +1060,16 @@ After firing, there may be numerous Jobs such as update, insert, and so on. A pr
 
 
 
-### Question 4: How SPRING uses the MVC model (Diagram)
+### Question 4: How does Spring uses the MVC pattern? (Diagram)
+
+The Spring framework uses the Model-View-Controller (MVC) design pattern to split the concerns of the program into three components:
+
+1. Model: Represents the data and business logic of the application.
+2. View: Displays the data to the user. It's responsible for rendering the model data into a format suitable for interaction.
+3. Controller: Handles user requests, interacts with the model to update it, and returns a view to the user.
+4. 
+
+<img src="./imgs/SpringMVC.png" alt="Spirng MVC" style="zoom:200%;" />
+
+The MVC pattern is implemented in Spring through the **DispatcherServlet**, which serves as the front controller and receives all incoming requests. The DispatcherServlet routes the request to the proper controllers, which process it and deliver a model to the view, which then renders the response to the user. The controllers can also update the model, which reflects changes in the view.
 
