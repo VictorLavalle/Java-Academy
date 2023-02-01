@@ -146,6 +146,8 @@ Unit testing is a testing technique in which individual modules or components of
 
 ![Scafolding](./imgs/Unit-Testing1.png)
 
+![Class Diagram](../Projects/Springboot REST + Unit Testing/REST-API/Class Diagram REST.png)
+
 ##### Entities:
 
 ```java
