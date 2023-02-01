@@ -39,10 +39,7 @@ public class ProfessorController {
     @GetMapping(path = "/professors/{id}")
     public ResponseEntity<Professor> getTeacher(@PathVariable long id) {
         Optional<Professor> professorOptional = professorRepository.findById(id);
-        if (professorOptional.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(professorOptional.get(), HttpStatus.OK);
+        return professorOptional.map(professor -> new ResponseEntity<>(professor, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
 
