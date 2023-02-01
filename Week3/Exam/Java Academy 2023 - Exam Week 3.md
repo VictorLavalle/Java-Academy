@@ -10,9 +10,11 @@
 
 ### Question 1 - Git Advance  commands (Pull Requet, Fork, Rebase, Stach, Clean, Cherry-pick, etc)
 
-- **Pull Request:** A pull request is a feature in Git that allows users to request changes to a project by proposing changes to a code repository. It enables collaboration and code review within a team, as well as the integration of contributions from external contributors. Steps of how to make a Pull Request:
+- **Pull Request:** A pull request is a feature in Git that allows users to request changes to a project by proposing changes to a code repository. It enables collaboration and code review within a team, as well as the integration of contributions from external contributors. 
 
   
+
+  Steps of how to make a Pull Request:
 
   1. **Clone the repository:** First, it is necessary to "clone" the repository to your local computer, so you can start making changes to the code.
 
@@ -30,17 +32,83 @@
 
      
 
-  In summary, Pull Requests allow developers to propose changes to a project's code, solicit feedback, and collaborate on improvements to the codebase, before those changes are merged into the main code.
+  Pull Requests, in summary, allow developers to propose changes to a project's code, solicit feedback, and collaborate on codebase improvements before those changes are merged into the main code.
 
   
 
-- **Fork:** A fork is a copy of a code repository that is stored in a user's own account on a Git hosting platform. It allows users to experiment with changes and improvements to a project without affecting the original repository.
+- **Fork:** In Git, a fork is a copy of a repository in your own GitHub account. When you fork a repository, you create a new, independent repository that is completely independent of the original. You can modify your fork without affecting the original repository, and you can also propose changes to the original repository by submitting a Pull Request.
 
-- **Rebase:** Rebase is a Git command that updates the current branch with new changes from another branch. It involves rewriting the branch's history to make it appear as if the branch was created from the latest changes in the target branch.
+  Steps of how to make a fork in Git:
 
-- **Stash:** The stash command is used to temporarily store changes in a Git repository. This is useful when a user needs to switch branches or perform other actions that would otherwise discard unsaved changes.
+  1. Go to the repository you want to fork: Navigate to the repository you want to fork on GitHub and click on the "Fork" button in the upper right-hand corner.
+  2. Select your account: If you have multiple GitHub accounts, select the account where you want to create the fork.
+  3. Wait for the fork to complete: GitHub will now create a copy of the repository and store it in your account. This may take a few minutes, depending on the size of the repository.
+  4. Clone the fork: Once the fork is complete, you need to clone the repository to your local computer. To do this, click on the "Clone or download" button, copy the repository URL, and then use Git to clone the repository to your local machine.
+  5. Make changes: Now that you have the code on your local computer, you can start making changes. You can add, modify, or delete files, or even create new branches if you want to experiment with different ideas.
+  6. Commit changes: When you're done making changes, you need to "commit" those changes to your local repository. A commit is a snapshot of the code at a particular point in time.
+  7. Push changes: Finally, you need to "push" your changes back to your fork on GitHub. This will upload all the commits you made to the online repository.
 
-- **Clean:** The clean command removes untracked files and directories from a Git repository. It's used to keep the repository clean and free of files that are not under version control.
+  ![Workflow of Pull Request and Fork](./imgs/PR-Fork.png)
+
+  
+
+- **Rebase:** Rebase is a Git command that merges fresh modifications from another branch into the current branch. It entails rewriting the branch's history so that it appears to be produced from the most recent modifications in the target branch. It's critical to recognize that rebasing can cause problems with collaboration since it affects the history of a branch, and it can lead to disagreements when different individuals work on the same branch. As a result, it is generally recommended to use rebasing only on personal branches and not on shared branches.
+
+  Example of how is usually implemented this process:
+
+  1. Suppose you have two branches: "`main`" and "`feature`".
+
+  2. "`feature`" branch was created from "`main`" and you have made several commits on "`feature`".
+
+  3. Meanwhile, "`main`" branch has received new commits.
+
+  4. To integrate the latest changes from "`main`" into "`feature`", you can use the rebase command: `git rebase main`
+
+  5. Git will reapply each commit from "`feature`" on top of the latest "`main`" branch, creating a new linear history.
+
+  6. If there are any conflicts between the changes in "`feature`" and "`master`", Git will stop the rebase process and ask you to resolve the conflicts before continuing.
+
+  7. After resolving the conflicts, you can use `git rebase --continue` to continue the rebase process.
+
+  8. When the rebase is complete, "`feature`" will have a linear history that includes the changes from "`main`".
+
+     
+
+  *Extra*: The `git pull` command can be modified to use rebasing instead of merging by adding the `--rebase` option. For example: `git pull --rebase origin master`.
+
+  When you run `git pull --rebase`, Git will first fetch the latest changes from the remote branch. Then, instead of merging the changes, Git will reapply the local branch's changes on top of the updated remote branch using rebasing. This will create a linear history without merge commits.
+
+
+
+
+
+- **Stash:** The stash command is used to temporarily store changes in a Git repository. This is useful when a user needs to switch branches or perform other actions that would otherwise discard unsaved changes. Stashes are stored in a stack, which means that you can have multiple stashes and apply them in a specific order.
+
+  A useful way of when to use a this command;
+
+  1. Suppose you have made some changes in your current branch, but you are not ready to commit them yet.
+  2. To stash the changes, run the following command: `git stash`.
+  3. Git will save the changes to a temporary area and revert your working directory to the latest commit.
+  4. You can now switch to another branch or perform any other Git operations without having your changes interfere.
+  5. When you are ready to return to your stashed changes, use the command `git stash apply`.
+  6. Git will reapply the stashed changes to your working directory.
+  7. If there are any conflicts between the changes you stashed and the changes in the branch you switched to, Git will ask you to resolve the conflicts before continuing.
+
+  
+
+  Useful commands:
+
+  `git stash list` to view the list of stashes.
+
+  `git stash apply` to apply a stash
+
+  `git stash apply stash@{index} ` to apply a specific stash
+
+  `git stash drop stash@{<index>}`to  discard a stash 
+
+  
+
+- **Clean:** The clean command removes untracked files and directories from a Git repository. It's used to keep the repository clean and free of files that are not under version control. It is important to keep in minad that  `git clean` command is a powerful tool, and it can be dangerous if used improperly. We must be careful when using the `-f` option, as it will permanently delete the untracked files and they cannot be recovered. If we want to be extra cautious, you can use the `-d` option to only remove untracked directories, or you can use the `-i` option to interactively select which files to remove.
 
   
 
