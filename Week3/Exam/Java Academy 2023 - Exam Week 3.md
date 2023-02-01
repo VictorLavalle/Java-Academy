@@ -936,6 +936,46 @@ public class StudentsApiTest {
 
 ### Question 3:  Explain and diagram Spring batch
 
+Spring Batch is a comprehensive, lightweight batch framework that allows for the creation of robust batch applications that are critical to the day-to-day operations of business systems.
+
+Spring Batch includes reusable functions for processing large amounts of data, such as record/trace, record management, transactions, job processing statistics, job restart, omission, and resource management.
+
+It also includes more advanced technical features and services that, through optimization and partitioning techniques, will enable high throughput and extremely high volume batch jobs. High volume batch jobs, both simple and complex, can use the framework to process large amounts of data in a highly scalable manner.
+
+We can see **JobRepository** as it stores information (tables). **Joblauncher** initiates the batch process; it can be initiated by an automated process that occurs at a specific time or by a person.
+
+After firing, there may be numerous Jobs such as update, insert, and so on. A process batch executes multiple Jobs. Each Job can have one or more Steps. The job repository retains the step, job, and joblauncher (database). A step is made up of three parts: an input, a processing step, and an output.
+
+![Spring Batch Diagram](./imgs/Spring-Batch.png)
+
+
+
+* **Job Launcher:**  Is a user interface for running a job. There is only one method in here: `run(job job, jobparameter)`. 
+
+  * Work on execution.
+
+  * JobParameter that will be passed to the job.
+
+    
+
+* **Job Repository:** The absence of outside interference is an important aspect of Spring Batch. As a result, we must save the job state, and future runs must take this into account. When processing large amounts of data, state management is critical. Spring Batch JobRepository is used to accomplish this.
+
+  
+
+* **Job** : Is a single unit of execution in Spring Batch that summarizes a series of processes for the batch application. This position may require a simple or complex task:
+
+  * The Spring Batch Tasklet is commonly used for simple tasks.
+
+  * A Spring Batch Tasklet will be used to run a job such as deleting a file or running a database query.
+
+    
+
+* **Step:**  is a domain object that encapsulates an independent, sequential phase of a batch job and contains all of the information needed to set up and control the batch processing itself.
+
+
+
+------
+
 
 
 ### Question 4: How SPRING uses the MVC model (Diagram)
