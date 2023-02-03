@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.luv2code.springdemo</groupId>
-	<artifactId>spring-web-customer-tracker-all-java-config</artifactId>
+	<groupId>com.java.academy</groupId>
+	<artifactId>spring-web-recruiter</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
@@ -87,7 +87,7 @@
 
 	<build>
 
-		<finalName>spring-web-customer-tracker-all-java-config</finalName>
+		<finalName>spring-web-recruiter</finalName>
 
 		<plugins>
 
