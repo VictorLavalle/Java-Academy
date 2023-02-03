@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.java.academy.week3.project.spring.entity.Customer;
+import com.java.academy.week3.project.spring.entity.Recruiter;
 import com.java.academy.week3.project.spring.service.CustomerService;
 
 @Controller
@@ -26,7 +26,7 @@ public class CustomerController {
 	public String listCustomers(Model theModel) {
 		
 		// get customers from the service
-		List<Customer> theCustomers = customerService.getCustomers();
+		List<Recruiter> theCustomers = customerService.getCustomers();
 				
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);
@@ -38,7 +38,7 @@ public class CustomerController {
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
-		Customer theCustomer = new Customer();
+		Recruiter theCustomer = new Recruiter();
 		
 		theModel.addAttribute("customer", theCustomer);
 		
@@ -46,7 +46,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+	public String saveCustomer(@ModelAttribute("customer") Recruiter theCustomer) {
 		
 		// save the customer using our service
 		customerService.saveCustomer(theCustomer);	
@@ -59,7 +59,7 @@ public class CustomerController {
 									Model theModel) {
 		
 		// get the customer from our service
-		Customer theCustomer = customerService.getCustomer(theId);	
+		Recruiter theCustomer = customerService.getCustomer(theId);	
 		
 		// set customer as a model attribute to pre-populate the form
 		theModel.addAttribute("customer", theCustomer);

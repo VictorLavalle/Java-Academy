@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.java.academy.week3.project.spring.entity.Customer;
+import com.java.academy.week3.project.spring.entity.Recruiter;
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
@@ -18,25 +18,25 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;
 			
 	@Override
-	public List<Customer> getCustomers() {
+	public List<Recruiter> getCustomers() {
 		
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 				
 		// create a query  ... sort by last name
-		Query<Customer> theQuery = 
+		Query<Recruiter> theQuery = 
 				currentSession.createQuery("from Customer order by lastName",
-											Customer.class);
+											Recruiter.class);
 		
 		// execute query and get result list
-		List<Customer> customers = theQuery.getResultList();
+		List<Recruiter> customers = theQuery.getResultList();
 				
 		// return the results		
 		return customers;
 	}
 
 	@Override
-	public void saveCustomer(Customer theCustomer) {
+	public void saveCustomer(Recruiter theCustomer) {
 
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -47,13 +47,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public Customer getCustomer(int theId) {
+	public Recruiter getCustomer(int theId) {
 
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// now retrieve/read from database using the primary key
-		Customer theCustomer = currentSession.get(Customer.class, theId);
+		Recruiter theCustomer = currentSession.get(Recruiter.class, theId);
 		
 		return theCustomer;
 	}

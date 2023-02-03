@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.java.academy.week3.project.spring.dao.CustomerDAO;
-import com.java.academy.week3.project.spring.entity.Customer;
+import com.java.academy.week3.project.spring.entity.Recruiter;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -18,20 +18,20 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	@Transactional
-	public List<Customer> getCustomers() {
+	public List<Recruiter> getCustomers() {
 		return customerDAO.getCustomers();
 	}
 
 	@Override
 	@Transactional
-	public void saveCustomer(Customer theCustomer) {
+	public void saveCustomer(Recruiter theCustomer) {
 
 		customerDAO.saveCustomer(theCustomer);
 	}
 
 	@Override
 	@Transactional
-	public Customer getCustomer(int theId) {
+	public Recruiter getCustomer(int theId) {
 		
 		return customerDAO.getCustomer(theId);
 	}
