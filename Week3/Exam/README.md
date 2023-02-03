@@ -1067,9 +1067,12 @@ After firing, there may be numerous Jobs such as update, insert, and so on. A pr
 The Spring framework uses the Model-View-Controller (MVC) design pattern to split the concerns of the program into three components:
 
 1. Model: Represents the data and business logic of the application.
+
 2. View: Displays the data to the user. It's responsible for rendering the model data into a format suitable for interaction.
+
 3. Controller: Handles user requests, interacts with the model to update it, and returns a view to the user.
-4. 
+
+   
 
 <img src="./imgs/SpringMVC.png" alt="Spirng MVC" style="zoom:200%;" />
 
