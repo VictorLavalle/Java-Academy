@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="maven-superheroes-web-project" path="/maven-superhero-web-project" reloadable="true" source="org.eclipse.jst.jee.server:maven-superheroes-web-project"/><Context docBase="spring-web-customer-tracker-all-java-config" path="/spring-web-customer-tracker-all-java-config" reloadable="true" source="org.eclipse.jst.jee.server:spring-web-customer-tracker-all-java-config"/></Host>
+      <Context docBase="maven-superheroes-web-project" path="/maven-superhero-web-project" reloadable="true" source="org.eclipse.jst.jee.server:maven-superheroes-web-project"/><Context docBase="spring-hibernate-customer-tracker-with-maven-all-java-config" path="/spring-web-customer-tracker-all-java-config" reloadable="true" source="org.eclipse.jst.jee.server:spring-hibernate-customer-tracker-with-maven-all-java-config"/></Host>
     </Engine>
   </Service>
 </Server>
