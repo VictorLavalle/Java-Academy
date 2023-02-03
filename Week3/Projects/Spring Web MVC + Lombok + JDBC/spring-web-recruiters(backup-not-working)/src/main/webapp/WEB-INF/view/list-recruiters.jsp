@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<title>List Recruiters</title>
+	<title>List of Recruiters</title>
 	
 	<!-- reference our style sheet -->
 
@@ -27,7 +27,7 @@
 	
 		<div id="content">
 		
-			<!-- put new button: Add recruiter -->
+			<!-- put new button: Add Recruiter -->
 		
 			<input type="button" value="Add Recruiter"
 				   onclick="window.location.href='showFormForAdd'; return false;"
@@ -86,3 +86,12 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+

@@ -72,7 +72,6 @@ public class RecruiterDAOImpl implements RecruiterDAO {
 		theQuery.executeUpdate();		
 	}
 
-
 }
 
 

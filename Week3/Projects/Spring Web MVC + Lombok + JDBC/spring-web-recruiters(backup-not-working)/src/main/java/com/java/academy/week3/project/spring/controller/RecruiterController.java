@@ -18,11 +18,9 @@ import com.java.academy.week3.project.spring.service.RecruiterService;
 @RequestMapping("/recruiter")
 public class RecruiterController {
 
-	// need to inject our recruiter  service
+	// need to inject our recruiter service
 	@Autowired
 	private RecruiterService recruiterService;
-	
-	
 	
 	@GetMapping("/list")
 	public String listRecruiters(Model theModel) {
@@ -49,16 +47,14 @@ public class RecruiterController {
 		return "recruiter-form";
 	}
 	
-	
 	@PostMapping("/saveRecruiter")
 	public String saveRecruiter(@ModelAttribute("recruiter") Recruiter theRecruiter) {
 		
-		// save the recruiter using our service
+		// save the recruiter  using our service
 		recruiterService.saveRecruiter(theRecruiter);	
 		
 		return "redirect:/recruiter/list";
 	}
-	
 	
 	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("recruiterId") int theId,

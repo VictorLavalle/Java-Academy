@@ -138,3 +138,12 @@ public class DemoAppConfig implements WebMvcConfigurer {
           .addResourceLocations("/resources/"); 
     }	
 }
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.java.academy.week3.project.spring</groupId>
-	<artifactId>spring-web-recruiters</artifactId>
+	<groupId>com.java.academy</groupId>
+	<artifactId>spring-web-recruiter</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
@@ -83,11 +83,11 @@
 		    <version>2.3.0</version>
 		</dependency>
 		
-				<!-- Added Lombok -->
+		<!-- Added Lombok -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>1.18.26</version>
+		    <version>1.16.16</version>
 		    <scope>provided</scope>
 		</dependency>
 
@@ -95,7 +95,7 @@
 
 	<build>
 
-		<finalName>spring-web-recruiters</finalName>
+		<finalName>spring-web-recruiter</finalName>
 
 		<plugins>
 

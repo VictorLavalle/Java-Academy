@@ -3,6 +3,7 @@ package com.java.academy.week3.project.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 
 	// need to inject recruiter dao
 	@Autowired
+	@Qualifier("RecruiterDAOImplJDBC")
 	private RecruiterDAO recruiterDAO;
 	
 	@Override
@@ -39,5 +41,9 @@ public class RecruiterServiceImpl implements RecruiterService {
 	public void deleteRecruiter(int theId) {
 		recruiterDAO.deleteRecruiter(theId);
 	}
-	
 }
+
+
+
+
+

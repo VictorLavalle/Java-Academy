@@ -1,20 +1,22 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-<title>Save Recruiter</title>
+	<title>Save Recruiter</title>
 
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css">
+	<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/style.css">
 
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/add-recruiter-style.css">
+	<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/add-recruiter-style.css">
 </head>
 
 <body>
-
+	
 	<div id="wrapper">
 		<div id="header">
 			<h2>CRM - LinkedIn Recruiters</h2>
@@ -23,20 +25,19 @@
 
 	<div id="container">
 		<h3>Save Recruiter</h3>
-
-		<form:form action="saveRecruiter" modelAttribute="recruiter"
-			method="POST">
+	
+		<form:form action="saveRecruiter" modelAttribute="recruiter" method="POST">
 
 			<!-- need to associate this data with recruiter id -->
 			<form:hidden path="id" />
-
+					
 			<table>
 				<tbody>
 					<tr>
 						<td><label>First name:</label></td>
 						<td><form:input path="firstName" /></td>
 					</tr>
-
+				
 					<tr>
 						<td><label>Last name:</label></td>
 						<td><form:input path="lastName" /></td>
@@ -57,20 +58,19 @@
 						<td><input type="submit" value="Save" class="save" /></td>
 					</tr>
 
-
+				
 				</tbody>
 			</table>
-
-
+		
+		
 		</form:form>
-
-		<div style=""></div>
-
+	
+		<div style="clear; both;"></div>
+		
 		<p>
-			<a href="${pageContext.request.contextPath}/recruiter/list">Back
-				to List</a>
+			<a href="${pageContext.request.contextPath}/recruiter/list">Back to List</a>
 		</p>
-
+	
 	</div>
 
 </body>
