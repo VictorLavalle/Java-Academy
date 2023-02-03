@@ -12,7 +12,7 @@
 
 	<link type="text/css"
 		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
+		  href="${pageContext.request.contextPath}/resources/css/add-recruiter-style.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 	
 		<form:form action="saveRecruiter" modelAttribute="recruiter" method="POST">
 
-			<!-- need to associate this data with customer id -->
+			<!-- need to associate this data with recrutier id -->
 			<form:hidden path="id" />
 					
 			<table>

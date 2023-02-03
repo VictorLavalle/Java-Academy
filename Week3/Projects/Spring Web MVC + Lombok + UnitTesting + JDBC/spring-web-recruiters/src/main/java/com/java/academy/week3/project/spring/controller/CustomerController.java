@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.controller;
+package com.java.academy.week3.project.spring.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springdemo.entity.Customer;
-import com.luv2code.springdemo.service.CustomerService;
+import com.java.academy.week3.project.spring.entity.Customer;
+import com.java.academy.week3.project.spring.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")

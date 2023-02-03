@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.config;
+package com.java.academy.week3.project.spring.config;
 
 import java.beans.PropertyVetoException;
 import java.util.Properties;
