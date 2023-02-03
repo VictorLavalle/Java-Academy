@@ -34,6 +34,7 @@ public class Recruiter {
 	
 	@Column(name="email")
 	private String email;
+	
 		
 }
 

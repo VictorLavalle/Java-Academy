@@ -15,7 +15,7 @@ public class RecruiterServiceImpl implements RecruiterService {
 
 	// need to inject recruiter dao
 	@Autowired
-	//@Qualifier("RecruiterDAOImpl")
+	@Qualifier("RecruiterDAOImplJDBC")
 	private RecruiterDAO recruiterDAO;
 	
 	@Override
