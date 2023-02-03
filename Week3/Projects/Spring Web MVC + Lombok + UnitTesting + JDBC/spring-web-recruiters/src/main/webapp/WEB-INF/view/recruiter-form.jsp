@@ -28,7 +28,7 @@
 	
 		<form:form action="saveRecruiter" modelAttribute="recruiter" method="POST">
 
-			<!-- need to associate this data with recrutier id -->
+			<!-- need to associate this data with recruiter id -->
 			<form:hidden path="id" />
 					
 			<table>

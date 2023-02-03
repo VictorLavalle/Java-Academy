@@ -11,63 +11,63 @@ import org.springframework.stereotype.Repository;
 import com.java.academy.week3.project.spring.entity.Recruiter;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class RecruiterDAOImpl implements RecruiterDAO {
 
 	// need to inject the session factory
 	@Autowired
 	private SessionFactory sessionFactory;
 			
 	@Override
-	public List<Recruiter> getCustomers() {
+	public List<Recruiter> getAllRecruiters() {
 		
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 				
 		// create a query  ... sort by last name
 		Query<Recruiter> theQuery = 
-				currentSession.createQuery("from Customer order by lastName",
+				currentSession.createQuery("from Recruiter order by lastName",
 											Recruiter.class);
 		
 		// execute query and get result list
-		List<Recruiter> customers = theQuery.getResultList();
+		List<Recruiter> recruiters = theQuery.getResultList();
 				
 		// return the results		
-		return customers;
+		return recruiters;
 	}
 
 	@Override
-	public void saveCustomer(Recruiter theCustomer) {
+	public void saveRecruiter(Recruiter theRecruiter) {
 
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// save/upate the customer ... finally LOL
-		currentSession.saveOrUpdate(theCustomer);
+		// save/update the recruiter 
+		currentSession.saveOrUpdate(theRecruiter);
 		
 	}
 
 	@Override
-	public Recruiter getCustomer(int theId) {
+	public Recruiter getRecruiter(int theId) {
 
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// now retrieve/read from database using the primary key
-		Recruiter theCustomer = currentSession.get(Recruiter.class, theId);
+		Recruiter theRecruiter = currentSession.get(Recruiter.class, theId);
 		
-		return theCustomer;
+		return theRecruiter;
 	}
 
 	@Override
-	public void deleteCustomer(int theId) {
+	public void deleteRecruiter(int theId) {
 
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// delete object with primary key
 		Query theQuery = 
-				currentSession.createQuery("delete from Customer where id=:customerId");
-		theQuery.setParameter("customerId", theId);
+				currentSession.createQuery("delete from Recruiter where id=:recruiterId");
+		theQuery.setParameter("recruiterId", theId);
 		
 		theQuery.executeUpdate();		
 	}
