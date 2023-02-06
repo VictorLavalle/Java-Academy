@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "e45599b4-14bf-441c-a22d-b37b7cd6d6bf",
+		"name": "Spring CRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20355781"
+	},
+	"item": [
+		{
+			"name": "Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/customers/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/customers/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "firstName",
+						"value": "Víctor",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "lastName",
+						"value": "Lavalle",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "email",
+						"value": "victor@test.com",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Víctor\",\n    \"lastName\": \"Lavalle\",\n    \"email\": \"victor@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/customers/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "firstName",
+						"value": "Víctor",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "lastName",
+						"value": "Lavalle",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "email",
+						"value": "victor@test.com",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 6,\n    \"firstName\": \"Manuel\",\n    \"lastName\": \"Canton\",\n    \"email\": \"victor@test2.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/customers/6",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081/spring-crm-rest/api/",
+			"type": "string"
+		}
+	]
+}
