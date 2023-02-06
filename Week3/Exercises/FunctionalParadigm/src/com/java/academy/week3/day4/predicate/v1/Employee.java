@@ -1,4 +1,4 @@
-package com.java.academy.week3.day4.predicate.v0;
+package com.java.academy.week3.day4.predicate.v1;
 
 import java.util.Objects;
 

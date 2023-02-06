@@ -18,8 +18,50 @@ public class Principal {
 
         List<Employee> listOfEmployees = Arrays.asList(arrayOfEmployees);
 
+        Predicate p;
+
+//		p = new Predicado() {
+//			@Override
+//			public boolean test(Employee e) {
+//				return e.getSalary()>250;
+//			}
+//		};
+
+        //DEFINICION DE UNA LAMBADA
+        p = e -> e.getSalary() > 250;
+
+        for (Employee emp : listOfEmployees) {
+            //LA LAMBADA SE EJECUTA CUANDO LLAMAMOS
+            //AL METODO ABSTRACTO
+            if (p.test(emp)) {
+                System.out.println(emp);
+            }
+        }
+
+        System.out.println("----------------");
+
+        p = e -> e.getName().length() > 6;
+
+        for (Employee emp : listOfEmployees) {
+            if (p.test(emp)) {
+                System.out.println(emp);
+            }
+        }
+
+        System.out.println("----------------");
+
+        p = e -> e.getName().length() > 7 && e.getSalary() > 250;
+
+        for (Employee emp : listOfEmployees) {
+            if (p.test(emp)) {
+                System.out.println(emp);
+            }
+        }
+
     }
 
 
 }
+
+
 

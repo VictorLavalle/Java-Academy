@@ -55,4 +55,9 @@ public class Employee implements Comparable<Employee> {
     public int hashCode() {
         return Objects.hash(employeeNumber, name, salary);
     }
+
+    public Employee increaseSalary(double increase) {
+        salary += increase;
+        return this;
+    }
 }
