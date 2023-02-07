@@ -38,3 +38,15 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Title': 'RestBackend',
+                'Implementation-Version': 0.1,
+                'Created-By': 'Gradle',
+                'Class-Path': configurations.compileClasspath.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.java.academy.finalproject.RestBackendApplication'
+        )
+    }
+}
