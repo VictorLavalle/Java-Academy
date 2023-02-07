@@ -2,6 +2,22 @@ export type Testing = {
     headerTitle: {
         title: string;
     };
+    mainSection:{
+        title: string;
+        tableHeaders: {
+            name: string;
+            email: string;
+            phone: string;
+            stateCity: string;
+            githubUrl: string;
+            career: string;
+            role: string;
+            skills: string;
+            englishLevel: string;
+            otherLangs: string;
+            delete: string;
+        };
+    }
     navbarLinks: {
         link1: string;
         link2: string;

@@ -1,4 +1,4 @@
-export type JoinUsData = {
+export type AcademyFormData = {
     email: string;
     name: string;
     phone: string;
@@ -11,6 +11,22 @@ export type JoinUsData = {
     otherLanguages: string;
     stateCity: string;
 };
+
+export type AcademyFormDataRetrieve = {
+    id: number;
+    email: string;
+    name: string;
+    phone: string;
+    githubUrl: string;
+    career: string;
+    role: string;
+    roleOther: string;
+    skills: string;
+    englishLevel: number;
+    otherLanguages: string;
+    stateCity: string;
+};
+
 
 export type LocationData = {
     ip: string;

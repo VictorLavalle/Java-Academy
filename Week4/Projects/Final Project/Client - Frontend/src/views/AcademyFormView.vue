@@ -4,7 +4,7 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import { onMounted, reactive, computed, ref } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import type { JoinUsData } from "@/types/types";
+import type { AcademyFormData } from "@/types/types";
 import instance from "@/axios/index";
 import { Toast } from "bootstrap";
 import { useI18n } from "vue-i18n";
@@ -16,9 +16,9 @@ const toastDiv: Ref<HTMLDivElement | null> = ref(null);
 const toastBody: Ref<HTMLDivElement | null> = ref(null);
 
 const acceptedPrivacy: Ref<boolean> = ref(false);
-const academyData: JoinUsData = reactive(emptyJoinUsData());
+const academyData: AcademyFormData = reactive(emptyAcademyFormData());
 
-function emptyJoinUsData(): JoinUsData {
+function emptyAcademyFormData(): AcademyFormData {
   return {
     email: "",
     name: "",
@@ -110,7 +110,7 @@ const validEnglishLevel: ComputedRef<boolean> = computed((): boolean =>
   academyData.englishLevel != -1 ? true : false
 );
 
-const validJoinUsData: ComputedRef<boolean> = computed((): boolean => {
+const validAcademyFormData: ComputedRef<boolean> = computed((): boolean => {
   if (
     validName.value &&
     validEmail.value &&
@@ -132,14 +132,14 @@ async function sendAcademyData(): Promise<void> {
   const toast: Toast = new Toast(toastDiv.value);
 
   try {
-    await instance.post("/joinUsApplications", academyData);
+    await instance.post("/academyApplications", academyData);
 
     toastDiv.value.classList.remove("text-bg-danger");
     toastDiv.value.classList.add("text-bg-success");
 
-    toastBody.value.innerText = `Thanks you! We'll be in touch with you via email.`;
+    toastBody.value.innerText = `Thanks you!. Information sent successfully`;
 
-    Object.assign(academyData, emptyJoinUsData());
+    Object.assign(academyData, emptyAcademyFormData());
   } catch {
     toastDiv.value.classList.remove("text-bg-success");
     toastDiv.value.classList.add("text-bg-danger");
@@ -343,8 +343,8 @@ onMounted((): void => {
       <div class="col-auto">
         <button
           @click="sendAcademyData"
-          :disabled="!validJoinUsData"
-          :class="{ disabled: !validJoinUsData }">
+          :disabled="!validAcademyFormData"
+          :class="{ disabled: !validAcademyFormData }">
           {{ t("joinUsForm.buttonSubmit.text") }}<i class="bi bi-envelope" />
         </button>
       </div>

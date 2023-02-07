@@ -2,15 +2,31 @@ import type { Testing } from "@/types/translationTypes";
 
 const translations: { en: Testing; es: Testing } = {
     en: {
-        headerTitle:{
-            title: "Java Academy - Final Project",
+        headerTitle: {
+            title: "Java Academy - Final Project"
+        },
+        mainSection: {
+            title: "Java Academy January - Febraury 2023 Members",
+            tableHeaders: {
+                name: "Name",
+                email: "Email",
+                phone: "Phone",
+                stateCity: "State and city",
+                githubUrl: "Url to GitHub profile",
+                career: "Career or formation",
+                role: "Role or Position",
+                skills: "Skills",
+                englishLevel: "English level",
+                otherLangs: "Other languages",
+                delete: "Delete"
+            }
         },
         navbarLinks: {
             link1: "Home",
-            link2: "Form",
+            link2: "Form"
         },
         footerSection: {
-            copyRightSectionTitle: "All Rights Reserved.",
+            copyRightSectionTitle: "All Rights Reserved."
         },
         joinUsForm: {
             title: "Java Academy January - February 2023",
@@ -27,7 +43,7 @@ const translations: { en: Testing; es: Testing } = {
                 roleOther: "Which?",
                 skills: "Skills (They can be technical, like programming languages, or soft skills, like responsability or communication)",
                 englishLevel: "English level:",
-                otherLangs: "Other languages:",
+                otherLangs: "Other languages:"
             },
             options: {
                 yes: "Yes",
@@ -51,21 +67,37 @@ const translations: { en: Testing; es: Testing } = {
                 privacyPolicy:
                     "I have read and agree with data <a href='/talent-network-privacy-policy'>privacy policy</a> for this data base."
             },
-            buttonSubmit:{
+            buttonSubmit: {
                 text: "Send"
             }
-        },
+        }
     },
     es: {
-        headerTitle:{
-            title: "Academia Java - Proyecto Final",
+        headerTitle: {
+            title: "Academia Java - Proyecto Final"
+        },
+        mainSection: {
+            title: "Miembros de la Academia Java Enero - Febrero 2023",
+            tableHeaders: {
+                name: "Nombre",
+                email: "Correo",
+                phone: "Teléfono",
+                stateCity: "Estado y municipio",
+                githubUrl: "Liga a perfil de GitHub",
+                career: "Carrera o formación",
+                role: "Rol / Puesto",
+                skills: "Habilidades",
+                englishLevel: "Nivel de inglés",
+                otherLangs: "Otros idiomas",
+                delete: "Eliminar"
+            }
         },
         navbarLinks: {
             link1: "Inicio",
-            link2: "Formulario",
+            link2: "Formulario"
         },
         footerSection: {
-            copyRightSectionTitle: "Todos los derechos reservados.",
+            copyRightSectionTitle: "Todos los derechos reservados."
         },
         joinUsForm: {
             title: "Academia Java Enero - Febrero 2023",
@@ -82,7 +114,7 @@ const translations: { en: Testing; es: Testing } = {
                 roleOther: "¿Cuál?",
                 skills: "Habilidades (Pueden ser técnicas como lenguajes de programación o habilidades blandas como responsabilidad o comunicación)",
                 englishLevel: "Nivel de inglés:",
-                otherLangs: "Otros idiomas:",
+                otherLangs: "Otros idiomas:"
             },
             options: {
                 yes: "Sí",
@@ -106,7 +138,7 @@ const translations: { en: Testing; es: Testing } = {
                 privacyPolicy:
                     "He leído y estoy de acuerdo con la <a href='/privacy-policy'>política de privacidad</a> de esta base de datos."
             },
-            buttonSubmit:{
+            buttonSubmit: {
                 text: "Enviar"
             }
         }
