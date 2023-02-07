@@ -20,6 +20,21 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "35382a10-d605-4f16-901b-8903e07a8de1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "vic",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -47,9 +62,16 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{baseUrl}}/academyApplications",
 					"host": [
@@ -63,13 +85,54 @@
 			"response": []
 		},
 		{
-			"name": "Save New Academy Member",
+			"name": "Get Academy Member by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/academyApplications/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"academyApplications",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Academy Member",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": []
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"phone\": \"1234567890\",\n    \"githubUrl\": \"https://github.com/VictorLavalle\",\n    \"career\": \"Software Developer\",\n    \"role\": 1,\n    \"roleOther\": \"\",\n    \"skills\": \"JavaScript, Node.js, Vue.js\",\n    \"englishLevel\": 4,\n    \"otherLanguages\": \"\",\n    \"stateCity\": \"New York, NY\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "{{baseUrl}}/academyApplications",
@@ -119,7 +182,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"1\",\n    \"email\": \"example@email.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"1234567890\",\n    \"githubUrl\": \"https://github.com/VictorLavalle\",\n    \"career\": \"Software Developer\",\n    \"role\": 1,\n    \"roleOther\": \"\",\n    \"skills\": \"JavaScript, Node.js, Vue.js\",\n    \"englishLevel\": 4,\n    \"otherLanguages\": \"\",\n    \"stateCity\": \"New York, NY\"\n}",
+					"raw": "{\n    \"id\": \"1\",\n    \"email\": \"example@email.com\",\n    \"name\": \"John Doe\",\n    \"phone\": \"1234567890\",\n    \"githubUrl\": \"https://github.com/VictorLavalle\",\n    \"career\": \"Software Developer\",\n    \"role\": 1,\n    \"roleOther\": \"\",\n    \"skills\": \"JavaScript, Node.js, Vue.js\",\n    \"englishLevel\": 5,\n    \"otherLanguages\": \"\",\n    \"stateCity\": \"New York, NY\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,13 +190,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/academyApplications/",
+					"raw": "{{baseUrl}}/academyApplications/1",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"academyApplications",
-						""
+						"1"
 					]
 				}
 			},
@@ -163,7 +226,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "localhost:9090/api/v1",
+			"value": "http://192.168.1.251:9090/api/v1",
 			"type": "string"
 		}
 	]
