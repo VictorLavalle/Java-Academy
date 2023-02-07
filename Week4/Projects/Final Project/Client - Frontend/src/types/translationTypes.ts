@@ -24,6 +24,7 @@ export type Testing = {
     };
     footerSection: {
         copyRightSectionTitle: string;
+        credits: string;
     };
     joinUsForm: {
         title: string;
@@ -65,5 +66,6 @@ export type Testing = {
         buttonSubmit: {
             text: string;
         }
-    };
+    },
+
 };

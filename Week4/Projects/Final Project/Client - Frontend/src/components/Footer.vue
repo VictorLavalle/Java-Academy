@@ -8,7 +8,7 @@ const { t } = useI18n();
   <footer id="footer" class="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Made with 💚 by <strong><span>Víctor Lavalle</span></strong
+        &copy; {{ t("footerSection.credits") }} <strong><span>Víctor Lavalle</span></strong
         >. {{ t("footerSection.copyRightSectionTitle") }}
       </div>
     </div>

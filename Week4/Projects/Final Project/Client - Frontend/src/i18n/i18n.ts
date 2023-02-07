@@ -26,7 +26,8 @@ const translations: { en: Testing; es: Testing } = {
             link2: "Form"
         },
         footerSection: {
-            copyRightSectionTitle: "All Rights Reserved."
+            copyRightSectionTitle: "All Rights Reserved.",
+            credits: "Made with 💚 by"
         },
         joinUsForm: {
             title: "Java Academy January - February 2023",
@@ -70,7 +71,7 @@ const translations: { en: Testing; es: Testing } = {
             buttonSubmit: {
                 text: "Send"
             }
-        }
+        },
     },
     es: {
         headerTitle: {
@@ -97,7 +98,8 @@ const translations: { en: Testing; es: Testing } = {
             link2: "Formulario"
         },
         footerSection: {
-            copyRightSectionTitle: "Todos los derechos reservados."
+            copyRightSectionTitle: "Todos los derechos reservados.",
+            credits: "Hecho con 💚 por "
         },
         joinUsForm: {
             title: "Academia Java Enero - Febrero 2023",
@@ -141,7 +143,7 @@ const translations: { en: Testing; es: Testing } = {
             buttonSubmit: {
                 text: "Enviar"
             }
-        }
+        },
     }
 };
 
