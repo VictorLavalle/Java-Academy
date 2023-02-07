@@ -210,7 +210,7 @@ onMounted((): void => {
 
 .navbar .active,
 .navbar a:hover {
-  color: rgb(0, 50, 94);
+  color: $colorTertiary;
 }
 
 .navbar > ul > li > a:before {
@@ -220,7 +220,7 @@ onMounted((): void => {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: $colorPrimary;
+  background-color: $colorTertiary;
   visibility: hidden;
   transition: all 0.3s ease-in-out 0s;
   transform: scaleX(0);

@@ -43,7 +43,7 @@ onMounted(() => {
           <div class="text-center">
             <h2>{{ t("mainSection.title") }}</h2>
           </div>
-          <div class="table-date pt-3">
+          <div class="table-data pt-3 table-responsive">
             <table class="table table-striped table-hover text-center">
               <thead>
                 <tr>
@@ -86,4 +86,10 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+section.main {
+  height: 70vh;
+}
+
+</style>
