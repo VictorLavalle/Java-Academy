@@ -38,14 +38,10 @@ public class LoggerToFile {
         try {
             FileWriter fileWriter = new FileWriter(logFilePath, true);
 
-            fileWriter.append(
-                System.getProperty("line.separator") +
-                LocalDateTime.now().toString() +
-                " - " +
-                logLevel +
-                ": " +
-                logText
-            );
+            fileWriter.append(System.getProperty("line.separator"))
+                    .append(LocalDateTime.now().toString())
+                    .append(" - ").append(logLevel)
+                    .append(": ").append(logText);
 
             fileWriter.close();
         } catch (IOException e) {

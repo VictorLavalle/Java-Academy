@@ -25,7 +25,6 @@ public class AcademyMemberRestExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-
     // Add another exception handler ... to catch any exception (catch all)
 
     @ExceptionHandler
@@ -44,8 +43,3 @@ public class AcademyMemberRestExceptionHandler {
     }
 
 }
-
-
-
-
-

@@ -16,10 +16,3 @@ public class AcademyMemberErrorResponse {
 	private long timeStamp;
 
 }
-
-
-
-
-
-
-
