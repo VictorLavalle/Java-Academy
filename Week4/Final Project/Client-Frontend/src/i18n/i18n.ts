@@ -7,6 +7,7 @@ const translations: { en: Testing; es: Testing } = {
         },
         mainSection: {
             title: "Java Academy January - Febraury 2023 Members",
+            deleteAll: "Delete all",
             tableHeaders: {
                 name: "Name",
                 email: "Email",
@@ -18,7 +19,8 @@ const translations: { en: Testing; es: Testing } = {
                 skills: "Skills",
                 englishLevel: "English level",
                 otherLangs: "Other languages",
-                delete: "Delete"
+                delete: "Delete",
+                edit: "Edit"
             }
         },
         navbarLinks: {
@@ -50,12 +52,12 @@ const translations: { en: Testing; es: Testing } = {
                 yes: "Yes",
                 no: "No",
                 englishLevel: {
-                    0: "The person does not know English.",
-                    1: "The person knows very little English.",
-                    2: "The person is capable of understanding English, but they have difficulty communicating in it.",
-                    3: "The person is capable of communicating in English, but they have trouble understanding it.",
-                    4: "The person is capable of both communicating and understanding English, but they lack practice.",
-                    5: "The person has no difficulties with English."
+                    0: "0 - The person does not know English.",
+                    1: "1 - The person knows very little English.",
+                    2: "2 - The person is capable of understanding English, but they have difficulty communicating in it.",
+                    3: "3 - The person is capable of communicating in English, but they have trouble understanding it.",
+                    4: "4 - The person is capable of both communicating and understanding English, but they lack practice.",
+                    5: "5 - The person has no difficulties with English."
                 },
                 roles: {
                     1: "Student",
@@ -79,6 +81,7 @@ const translations: { en: Testing; es: Testing } = {
         },
         mainSection: {
             title: "Miembros de la Academia Java Enero - Febrero 2023",
+            deleteAll: "Eliminar todos",
             tableHeaders: {
                 name: "Nombre",
                 email: "Correo",
@@ -90,7 +93,8 @@ const translations: { en: Testing; es: Testing } = {
                 skills: "Habilidades",
                 englishLevel: "Nivel de inglés",
                 otherLangs: "Otros idiomas",
-                delete: "Eliminar"
+                delete: "Eliminar",
+                edit: "Editar"
             }
         },
         navbarLinks: {

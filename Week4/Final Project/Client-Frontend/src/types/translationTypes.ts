@@ -4,6 +4,7 @@ export type Testing = {
     };
     mainSection:{
         title: string;
+        deleteAll: string;
         tableHeaders: {
             name: string;
             email: string;
@@ -16,6 +17,7 @@ export type Testing = {
             englishLevel: string;
             otherLangs: string;
             delete: string;
+            edit: string;
         };
     }
     navbarLinks: {

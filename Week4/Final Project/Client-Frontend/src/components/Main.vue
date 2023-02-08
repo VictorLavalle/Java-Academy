@@ -8,7 +8,6 @@ const { t } = useI18n();
 
 const message = ref<AcademyFormDataRetrieve[]>([]);
 
-
 async function retrieveData(): Promise<void> {
   try {
     await instance.get("/academyApplications").then((response) => {
@@ -24,7 +23,26 @@ async function deleteMember(id: number): Promise<void> {
     await instance.delete(`/academyApplications/${id}`).then((response) => {
       retrieveData();
     });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
+async function deleteAll(): Promise<void> {
+  try {
+    await instance.delete("/academyApplications").then((response) => {
+      location.reload();
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function updateMember(id: number): Promise<void> {
+  try {
+    await instance.get(`/academyApplications/${id}`).then((response) => {
+      window.location.href = "/#/form";
+    });
   } catch (error) {
     console.error(error);
   }
@@ -43,6 +61,13 @@ onMounted(() => {
           <div class="text-center">
             <h2>{{ t("mainSection.title") }}</h2>
           </div>
+
+          <div class="text-center">
+            <button class="btn btn-danger" @click="deleteAll">
+              {{ t("mainSection.deleteAll") }}
+            </button>
+          </div>
+
           <div class="table-data pt-3 table-responsive">
             <table class="table table-striped table-hover text-center">
               <thead>
@@ -61,19 +86,40 @@ onMounted(() => {
               </thead>
               <tbody>
                 <tr v-for="data in message" :key="data.id">
-                  <td>{{ data.name }}</td>
+                  <td>
+                    {{ data.name }}
+                    <!-- <input type="text" v-model="data.name" /> -->
+                  </td>
                   <td>{{ data.email }}</td>
                   <td>{{ data.phone }}</td>
                   <td>{{ data.stateCity }}</td>
-                  <td><a :href="data.githubUrl" target="_blank">{{ data.githubUrl }}</a></td>
+                  <td>
+                    <a :href="data.githubUrl" target="_blank">{{
+                      data.githubUrl
+                    }}</a>
+                  </td>
                   <td>{{ data.career }}</td>
-                  <td>{{ data.role }}</td>
+                  <td>
+                    <template v-if="data.role==='4'">
+                    {{data.roleOther}}
+                    </template>
+                    <template v-else>{{ data.role }}</template>
+                  </td>
                   <td>{{ data.skills }}</td>
                   <td>{{ data.englishLevel }}</td>
                   <td>{{ data.otherLanguages }}</td>
                   <td>
-                    <button class="btn btn-danger" @click="deleteMember(data.id)">
-                      {{ t("mainSection.tableHeaders.delete") }}
+                    <button
+                      class="btn btn-primary"
+                      @click="updateMember(data.id)">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      @click="deleteMember(data.id)">
+                      <i class="bi bi-trash"></i>
                     </button>
                   </td>
                 </tr>
@@ -87,9 +133,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-
 section.main {
   height: 70vh;
 }
-
 </style>

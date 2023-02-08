@@ -13,7 +13,6 @@ import lombok.*;
 @Table(name = "academyMember")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AcademyFormData {
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_academyMember")
@@ -33,9 +32,6 @@ public class AcademyFormData {
 
     @Column(name = "github_url")
     private String githubUrl;
-
-    @Column(name = "linkedin_url")
-    private String career;
 
     @Column(name = "role")
     private String role;

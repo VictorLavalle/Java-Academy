@@ -20,6 +20,7 @@ public class MainController {
 
     @Autowired
     private AcademyFormDataService academyFormDataService;
+
     @Autowired
     private AcademyFormDataRepository academyFormDataRepository;
 
@@ -94,6 +95,16 @@ public class MainController {
         }
         academyFormDataRepository.delete(academyFormDataOptional.get());
         return new ResponseEntity<>("Academy Member deleted", HttpStatus.OK);
+    }
+
+
+    /*
+     * This method is used to delete all the data from the database
+     */
+    @DeleteMapping("/academyApplications")
+    public ResponseEntity<String> deleteAllAcademyFormData() {
+        academyFormDataRepository.deleteAll();
+        return new ResponseEntity<>("All Academy Members deleted", HttpStatus.OK);
     }
 
 }

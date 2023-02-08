@@ -102,7 +102,11 @@ const validGitHubUrl: ComputedRef<boolean> = computed((): boolean => {
 
 const validRole: ComputedRef<boolean> = computed((): boolean => {
   if (academyData.role == 0) return false;
-  if (academyData.role == 4 && !academyData.roleOther.length) return false;
+  if (
+    academyData.role == t("joinUsForm.options.roles.4") &&
+    !academyData.roleOther.length
+  )
+    return false;
   return true;
 });
 
@@ -220,9 +224,10 @@ onMounted((): void => {
       <label
         class="form-label required-input"
         :class="{ 'text-danger': !validPhone }"
-        style="margin-right: 1rem"
+        id="phone-input-label"
         >{{ t("joinUsForm.questions.phone") }}</label
       >
+
       <input
         type="tel"
         name="phone"
@@ -235,7 +240,7 @@ onMounted((): void => {
 
       <br />
       <!-- State and city -->
-      <label class="form-label">{{
+      <label class="form-label" id="stateCity-input">{{
         t("joinUsForm.questions.stateCity")
       }}</label>
       <input
@@ -271,13 +276,21 @@ onMounted((): void => {
         class="form-select space-below"
         :class="{ 'border-danger': !validRole }">
         <option :value="0" />
-        <option :value="1">{{ t("joinUsForm.options.roles.1") }}</option>
-        <option :value="2">{{ t("joinUsForm.options.roles.2") }}</option>
-        <option :value="3">{{ t("joinUsForm.options.roles.3") }}</option>
-        <option :value="4">{{ t("joinUsForm.options.roles.4") }}</option>
+        <option :value="t('joinUsForm.options.roles.1')">
+          {{ t("joinUsForm.options.roles.1") }}
+        </option>
+        <option :value="t('joinUsForm.options.roles.2')">
+          {{ t("joinUsForm.options.roles.2") }}
+        </option>
+        <option :value="t('joinUsForm.options.roles.3')">
+          {{ t("joinUsForm.options.roles.3") }}
+        </option>
+        <option :value="t('joinUsForm.options.roles.4')">
+          {{ t("joinUsForm.options.roles.4") }}
+        </option>
       </select>
       <Transition name="slide-fade">
-        <div v-if="academyData.role == 4">
+        <div v-if="academyData.role == t('joinUsForm.options.roles.4')">
           <label
             class="form-label required-input"
             :class="{ 'text-danger': !validRole }"
@@ -410,11 +423,16 @@ $animationFast: 250ms;
   margin-right: 0.25rem;
 }
 
-.link-policies {
-  color: $colorPrimary;
+#stateCity-input {
+  margin-top: 0.8rem;
+}
 
-  &:hover {
-    color: $colorSecondary;
+#phone-input-label {
+  margin-right: 50rem;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
   }
+  
 }
 </style>

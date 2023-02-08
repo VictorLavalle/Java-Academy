@@ -45,4 +45,10 @@ public class AcademyFormDataService {
         academyFormDataRepository.deleteById(id);
     }
 
+
+    // This method is used to delete thw whole data from the database
+    public void deleteAcademyFormData(AcademyFormData academyFormData) {
+        academyFormDataRepository.delete(academyFormData);
+    }
+
 }

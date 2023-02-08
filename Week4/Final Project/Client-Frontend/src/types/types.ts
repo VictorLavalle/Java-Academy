@@ -4,7 +4,7 @@ export type AcademyFormData = {
     phone: string;
     githubUrl: string;
     career: string;
-    role: 0 | 1 | 2 | 3 | 4 ;
+    role: 0 | string ;
     roleOther: string;
     skills: string;
     englishLevel: number;
