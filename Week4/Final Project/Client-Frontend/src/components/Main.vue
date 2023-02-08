@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import instance from "@/axios/index";
 import type { AcademyFormDataRetrieve } from "@/types/types";
 
+const route = useRoute();
 const { t } = useI18n();
 
 const message = ref<AcademyFormDataRetrieve[]>([]);
@@ -39,13 +41,7 @@ async function deleteAll(): Promise<void> {
 }
 
 async function updateMember(id: number): Promise<void> {
-  try {
-    await instance.get(`/academyApplications/${id}`).then((response) => {
-      window.location.href = "/#/form";
-    });
-  } catch (error) {
-    console.error(error);
-  }
+  console.log(id);
 }
 
 onMounted(() => {
@@ -100,8 +96,9 @@ onMounted(() => {
                   </td>
                   <td>{{ data.career }}</td>
                   <td>
-                    <template v-if="data.role==='4'">
-                    {{data.roleOther}}
+                    <template
+                      v-if="data.role === t('joinUsForm.options.roles.4')">
+                      {{ data.roleOther }}
                     </template>
                     <template v-else>{{ data.role }}</template>
                   </td>
@@ -109,11 +106,16 @@ onMounted(() => {
                   <td>{{ data.englishLevel }}</td>
                   <td>{{ data.otherLanguages }}</td>
                   <td>
-                    <button
-                      class="btn btn-primary"
-                      @click="updateMember(data.id)">
-                      <i class="bi bi-pencil"></i>
-                    </button>
+                    <router-link
+                      class="nav-link scrollto"
+                      :class="{
+                        active: route.path.startsWith('/academy-form')
+                      }"
+                      @click="updateMember(data.id)"
+                      to="/academy-form">
+                      <button class="btn btn-primary">
+                        <i class="bi bi-pencil"></i></button
+                    ></router-link>
                   </td>
                   <td>
                     <button

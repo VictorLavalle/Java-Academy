@@ -33,6 +33,9 @@ public class AcademyFormData {
     @Column(name = "github_url")
     private String githubUrl;
 
+    @Column(name = "career")
+    private String career;
+
     @Column(name = "role")
     private String role;
 
