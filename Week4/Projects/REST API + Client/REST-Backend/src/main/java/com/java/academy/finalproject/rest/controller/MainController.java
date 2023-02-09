@@ -61,7 +61,7 @@ public class MainController extends DataObserved {
     public List<AcademyFormData> getAcademyFormApplications() {
 
         if (academyFormDataService.getAllAcademyFormData().isEmpty()) {
-            LOGGER.error("No data found");
+            LOGGER.info("No data found");
             throw new AcademyMemberNotFoundException("No data found");
         }
 
