@@ -30,7 +30,6 @@ public class Principal {
 
 
 
-
         // Lambda function with multiple lines of code inside the body
         // This is a block lambda function
         IDistanceCalculator dCalculator2 = (city1, city2) -> {
@@ -41,7 +40,6 @@ public class Principal {
         //Prints the results
         System.out.println(dCalculator2.calculateDistance(new City(100, 200.5), new City(300, 400)));
 
-
         orderManagement.setDistanceCalculator((city1, city2) -> city1.getLongitude() - city2.getLongitude());
 
 
@@ -51,6 +49,7 @@ public class Principal {
         orderManagement.setDistanceCalculator(GoogleDistanceCalculator::getDistanceBetweenCitiesStatic);
         GoogleDistanceCalculator gdc = new GoogleDistanceCalculator();
         orderManagement.setDistanceCalculator(gdc::getDistanceBetweenCities);
+
 
 
     }
