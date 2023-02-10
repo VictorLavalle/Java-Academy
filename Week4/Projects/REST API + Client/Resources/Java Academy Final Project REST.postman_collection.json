@@ -96,12 +96,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{baseUrl}}/academyApplications",
+					"raw": "{{secondBaseUrl}}/satisfactionApplications",
 					"host": [
-						"{{baseUrl}}"
+						"{{secondBaseUrl}}"
 					],
 					"path": [
-						"academyApplications"
+						"satisfactionApplications"
 					]
 				}
 			},
@@ -176,7 +176,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"generalSatisfaction\": 8,\n    \"teacherSatisfaction\": 10,\n    \"checkpointSatisfaction\": 4\n\n}",
+					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"generalSatisfaction\": \"Satisfied\",\n    \"teacherSatisfaction\": \"Very Satisfied\",\n    \"checkpointSatisfaction\": \"Dissastified\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"

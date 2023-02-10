@@ -25,12 +25,12 @@ public class SatisfactionFormData {
     private String email;
 
     @Column(name = "general_satisfaction")
-    private int generalSatisfaction;
+    private String generalSatisfaction;
 
     @Column(name = "teacher_satisfaction")
-    private int teacherSatisfaction;
+    private String teacherSatisfaction;
 
     @Column(name = "course_satisfaction")
-    private int checkpointSatisfaction;
+    private String checkpointSatisfaction;
 
 }

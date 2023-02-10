@@ -25,7 +25,8 @@ const translations: { en: Testing; es: Testing } = {
         },
         navbarLinks: {
             link1: "Home",
-            link2: "Form"
+            link2: "Add member",
+            link3: "Satisfaction Survey"
         },
         footerSection: {
             copyRightSectionTitle: "All Rights Reserved.",
@@ -74,6 +75,23 @@ const translations: { en: Testing; es: Testing } = {
                 text: "Send"
             }
         },
+        satisfactionForm: {
+            description: "Helo there! Rate your experience in the Academy",
+            questions: {
+                generalSatisfaction:
+                    "How satisfied are you with the Java Academy?",
+                teacherSatisfaction:
+                    "How satisfied are you with the instructor?",
+                checkpointSatisfaction:
+                    "How satisfied are you with the checkpoints?"
+            },
+            options: {
+                1: "Dissatisfied",
+                2: "Indifferent",
+                3: "Satisfied",
+                4: "Very satisfied"
+            }
+        }
     },
     es: {
         headerTitle: {
@@ -99,7 +117,8 @@ const translations: { en: Testing; es: Testing } = {
         },
         navbarLinks: {
             link1: "Inicio",
-            link2: "Formulario"
+            link2: "Añadir Formulario",
+            link3: "Encuesta de satisfacción"
         },
         footerSection: {
             copyRightSectionTitle: "Todos los derechos reservados.",
@@ -148,6 +167,23 @@ const translations: { en: Testing; es: Testing } = {
                 text: "Enviar"
             }
         },
+        satisfactionForm: {
+            description: "¡Hola! Califica tu experiencia en la Academia.",
+            questions: {
+                generalSatisfaction:
+                    "¿Qué tan satisfecho estás con la Academia Java?",
+                teacherSatisfaction:
+                    "¿Qué tan satisfecho estás con el instructor?",
+                checkpointSatisfaction:
+                    "¿Qué tan satisfecho estás con los checkpoints?"
+            },
+            options: {
+                1: "Insatisfecho",
+                2: "Indiferente",
+                3: "Satisfecho",
+                4: "Muy satisfecho"
+            }
+        }
     }
 };
 

@@ -192,7 +192,7 @@ onMounted((): void => {
     <div class="form container">
       <h1 class="text-center m-5">{{ t("joinUsForm.title") }}</h1>
 
-      <p>
+      <p class="text-center">
         {{ t("joinUsForm.description") }}
       </p>
 

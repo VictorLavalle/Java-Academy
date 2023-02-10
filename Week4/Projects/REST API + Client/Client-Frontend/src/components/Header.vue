@@ -115,11 +115,20 @@ onMounted((): void => {
 
           <li>
             <router-link
-              class="nav-link scrollto"
+              class="nav-link"
               :class="{ active: route.path.startsWith('/academy-form') }"
               @click="closeMobileNavbar"
               to="/academy-form"
               >{{ t("navbarLinks.link2") }}</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="nav-link"
+              :class="{ active: route.path.startsWith('/satisfaction-form') }"
+              @click="closeMobileNavbar"
+              to="/satisfaction-form"
+              >{{ t("navbarLinks.link3") }}</router-link
             >
           </li>
           <li>

@@ -23,6 +23,7 @@ export type Testing = {
     navbarLinks: {
         link1: string;
         link2: string;
+        link3: string;
     };
     footerSection: {
         copyRightSectionTitle: string;
@@ -69,5 +70,19 @@ export type Testing = {
             text: string;
         }
     },
+    satisfactionForm: {
+        description: string;
+        questions: {
+            generalSatisfaction: string;
+            teacherSatisfaction: string;
+            checkpointSatisfaction: string;
+        };
+        options: {
+            1: string;
+            2: string;
+            3: string;
+            4: string;
+        };
+    };
 
 };

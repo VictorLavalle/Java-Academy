@@ -57,3 +57,11 @@ export type LocationData = {
     asn: string;
     org: string;
 };
+
+export type SatisfactionFormData = {
+    email: string;
+    name: string;
+    generalSatisfaction: 0 | 1 | 2 | 3 | 4 ;
+    teacherSatisfaction : 0 | 1 | 2 | 3 | 4 ;
+    checkpointSatisfaction : 0 | 1 | 2 | 3 | 4 ;
+};

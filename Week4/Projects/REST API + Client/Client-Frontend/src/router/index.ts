@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import AcademyFormView from "@/views/AcademyFormView.vue";
+import SatisfactionFormView from "@/views/SatisfactionFormView.vue";
 
 
 const router = createRouter({
@@ -16,6 +17,11 @@ const router = createRouter({
             path: "/academy-form",
             name: "academy-form",
             component: AcademyFormView
+        },
+        {
+            path: "/satisfaction-form",
+            name: "satisfaction-form",
+            component: SatisfactionFormView
         },
         {
             path: "/:pathMatch(.*)*",
