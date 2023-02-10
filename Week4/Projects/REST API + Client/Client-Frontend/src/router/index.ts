@@ -3,6 +3,7 @@ import HomeView from "@/views/HomeView.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import AcademyFormView from "@/views/AcademyFormView.vue";
 import SatisfactionFormView from "@/views/SatisfactionFormView.vue";
+import EditMemberInfoView from "@/views/EditMemberInfoView.vue";
 
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
             path: "/academy-form",
             name: "academy-form",
             component: AcademyFormView
+        },
+        {
+            path: "/academy-form/:id",
+            name: "update-form",
+            component: EditMemberInfoView
         },
         {
             path: "/satisfaction-form",

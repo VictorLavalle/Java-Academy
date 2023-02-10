@@ -43,15 +43,6 @@ public class Principal {
         orderManagement.setDistanceCalculator((city1, city2) -> city1.getLongitude() - city2.getLongitude());
 
 
-
-
-        // ========== Method reference demo ==========
-        orderManagement.setDistanceCalculator(GoogleDistanceCalculator::getDistanceBetweenCitiesStatic);
-        GoogleDistanceCalculator gdc = new GoogleDistanceCalculator();
-        orderManagement.setDistanceCalculator(gdc::getDistanceBetweenCities);
-
-
-
     }
 
 }

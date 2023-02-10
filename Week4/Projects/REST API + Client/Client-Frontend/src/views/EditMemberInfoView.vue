@@ -4,7 +4,8 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import { onMounted, reactive, computed, ref } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import type { AcademyFormData } from "@/types/types";
+import { useRoute } from "vue-router";
+import type { AcademyFormData, AcademyFormDataRetrieve } from "@/types/types";
 import instance from "@/axios/index";
 import { Toast } from "bootstrap";
 import { useI18n } from "vue-i18n";
@@ -18,9 +19,9 @@ const toastBody: Ref<HTMLDivElement | null> = ref(null);
 const acceptedPrivacy: Ref<boolean> = ref(false);
 const academyData: AcademyFormData = reactive(emptyAcademyFormData());
 
-//const route = useRoute();
-//const formId: string = route.params.id as string;
-
+const route = useRoute();
+const formId: string = route.params.id as string;
+const message = ref<AcademyFormDataRetrieve[]>([]);
 
 function emptyAcademyFormData(): AcademyFormData {
   return {
@@ -132,6 +133,21 @@ const validAcademyFormData: ComputedRef<boolean> = computed((): boolean => {
 });
 
 /********************************
+ * Get the data to the backend
+ ********************************/
+async function retrieveDataById(id: number): Promise<void> {
+  try {
+    await instance.get(`/academyApplications/${Number(formId)}`).then((response) => {
+      message.value = response.data;
+      console.log(message.value);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+/********************************
  * Send the form to the backend
  ********************************/
 async function sendAcademyData(): Promise<void> {
@@ -140,7 +156,7 @@ async function sendAcademyData(): Promise<void> {
   const toast: Toast = new Toast(toastDiv.value);
 
   try {
-    await instance.post("/academyApplications", academyData);
+    await instance.put(`/academyApplications/${Number(formId)}`, academyData);
 
     toastDiv.value.classList.remove("text-bg-danger");
     toastDiv.value.classList.add("text-bg-success");
@@ -163,7 +179,7 @@ async function sendAcademyData(): Promise<void> {
  * Setup the animations and the phone number library
  ********************************/
 onMounted((): void => {
-  //  retrieveDataById(Number(formId));
+  retrieveDataById(Number(formId));
   setupPhoneNumberLibrary();
 });
 </script>

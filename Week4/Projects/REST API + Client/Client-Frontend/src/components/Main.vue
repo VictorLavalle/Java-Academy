@@ -40,9 +40,6 @@ async function deleteAll(): Promise<void> {
   }
 }
 
-async function updateMember(id: number): Promise<void> {
-  console.log(id);
-}
 
 onMounted(() => {
   retrieveData();
@@ -111,8 +108,7 @@ onMounted(() => {
                       :class="{
                         active: route.path.startsWith('/academy-form')
                       }"
-                      @click="updateMember(data.id)"
-                      to="/academy-form">
+                      :to="{ path: `/academy-form/${encodeURIComponent(data.id)}` }">
                       <button class="btn btn-primary">
                         <i class="bi bi-pencil"></i></button
                     ></router-link>
