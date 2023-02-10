@@ -21,19 +21,7 @@
 			],
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "35382a10-d605-4f16-901b-8903e07a8de1",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "vic",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
@@ -51,6 +39,41 @@
 		},
 		{
 			"name": "Get All Academy Members",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/academyApplications",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"academyApplications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Satisfaction Forms",
 			"event": [
 				{
 					"listen": "test",
@@ -127,7 +150,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"phone\": \"1234567890\",\n    \"githubUrl\": \"https://github.com/VictorLavalle\",\n    \"career\": \"Software Developer\",\n    \"role\": 1,\n    \"roleOther\": \"\",\n    \"skills\": \"JavaScript, Node.js, Vue.js\",\n    \"englishLevel\": 4,\n    \"otherLanguages\": \"\",\n    \"stateCity\": \"New York, NY\"\n}",
+					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"phone\": \"1234567890\",\n    \"githubUrl\": \"https://github.com/VictorLavalle\",\n    \"career\": \"Software Developer\",\n    \"role\": \"Student\",\n    \"roleOther\": \"\",\n    \"skills\": \"JavaScript, Node.js, Vue.js\",\n    \"englishLevel\": 4,\n    \"otherLanguages\": \"\",\n    \"stateCity\": \"New York, NY\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -141,6 +164,32 @@
 					],
 					"path": [
 						"academyApplications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Satisfaction Form",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"example@email.com\",\n    \"name\": \"Víctor Lavalle\",\n    \"generalSatisfaction\": 8,\n    \"teacherSatisfaction\": 10,\n    \"checkpointSatisfaction\": 4\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{secondBaseUrl}}/satisfactionApplications",
+					"host": [
+						"{{secondBaseUrl}}"
+					],
+					"path": [
+						"satisfactionApplications"
 					]
 				}
 			},
@@ -227,6 +276,11 @@
 		{
 			"key": "baseUrl",
 			"value": "http://192.168.1.251:9090/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "secondBaseUrl",
+			"value": "http://192.168.1.251:9091/api/v1",
 			"type": "string"
 		}
 	]
